@@ -1,0 +1,352 @@
+{
+  "metadata": {
+    "title": "Hung Nguyen — Full Stack Developer",
+    "description": "Versatile Full Stack Developer with 6+ years of experience delivering production-grade web applications across e-commerce, SaaS, enterprise telephony, advertising technology, and AI-powered platforms.",
+    "keywords": "Full Stack Developer, Laravel, React, Vue, Node.js, AdonisJS, E-commerce, AI Engineering, OpenAI, Vietnam, Hanoi"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact",
+    "viewProjects": "View Projects"
+  },
+  "hero": {
+    "greeting": "Full Stack Developer",
+    "headline": "Building Scalable Digital Products That Matter.",
+    "subheadline": "Versatile Full Stack Developer with 6+ years of experience delivering production-grade web applications — from e-commerce platforms and SaaS tools to enterprise telephony systems and AI-powered applications.",
+    "metrics": {
+      "experience": { "value": "6+", "label": "Years Experience" },
+      "projects": { "value": "9", "label": "Projects Shipped" },
+      "companies": { "value": "4+", "label": "Companies" }
+    },
+    "cta": {
+      "viewProjects": "View Projects",
+      "downloadResume": "Download Resume"
+    }
+  },
+  "companies": {
+    "headline": "Trusted by Leading Companies Across Vietnam and Japan",
+    "subtitle": "Delivering production-grade solutions for industry leaders in product and outsourcing environments"
+  },
+  "about": {
+    "headline": "From Security Foundations to Product Engineering",
+    "subtitle": "B.Eng. Information Security graduate turned Full Stack Developer — shipping real products across diverse domains since 2019.",
+    "timeline": {
+      "step1": {
+        "title": "Information Security Graduate",
+        "description": "Graduated with a B.Eng. in Information Security from the Academy of Cryptography Techniques (KMA), Vietnam (2016–2021), building a strong foundation in secure systems and analytical thinking."
+      },
+      "step2": {
+        "title": "Full Stack Developer at VCCorp",
+        "description": "Started at Vietnam's largest media technology company, contributing to Bizfly Email, Vanecom e-commerce with OpenAI integration, and Remote-Offer recruitment platform."
+      },
+      "step3": {
+        "title": "Full Stack Developer at CO-WELL Asia",
+        "description": "Delivered outsourcing projects for Japanese clients — Ad-Start advertising platform, TobilaPhone Biz enterprise telephony, and Onsight-php event management system."
+      },
+      "step4": {
+        "title": "Full Stack & Freelance Developer",
+        "description": "Built Coolmate.me e-commerce at scale, then transitioned to remote freelance work maintaining Laravel systems for Japanese enterprise clients while shipping AI-powered products."
+      }
+    },
+    "values": {
+      "productMindset": {
+        "title": "Product Mindset",
+        "description": "Proven ability to deliver across both product and outsourcing environments, with every feature tied to measurable business outcomes."
+      },
+      "problemSolving": {
+        "title": "Problem Solving",
+        "description": "Diagnosed complex bugs, refactored legacy code, and optimized API response times for long-term maintainability."
+      },
+      "shipping": {
+        "title": "Shipping Real Products",
+        "description": "9 production systems shipped — from high-volume e-commerce to enterprise telephony and AI-powered platforms."
+      },
+      "learning": {
+        "title": "Continuous Learning",
+        "description": "Early adopter of AI-assisted development with OpenAI API, Claude Code, Cursor IDE, and GitHub Copilot."
+      }
+    }
+  },
+  "techStack": {
+    "headline": "Technology Stack",
+    "subtitle": "Production-proven tools across backend, frontend, databases, DevOps, and AI",
+    "categories": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "databases": "Databases",
+      "devops": "DevOps & Cloud",
+      "ai": "AI & Dev Tools"
+    },
+    "skills": {
+      "backend": ["Laravel", "PHP", "CakePHP", "Node.js", "AdonisJS v6"],
+      "frontend": ["ReactJS", "VueJS", "jQuery", "HTML/CSS", "Tailwind CSS", "Bootstrap"],
+      "databases": ["MySQL", "PostgreSQL", "MongoDB"],
+      "devops": ["Git", "Docker", "Linux/Ubuntu", "AWS S3", "Firebase"],
+      "ai": ["OpenAI API", "Claude Code", "GitHub Copilot", "Cursor IDE", "Prompt Engineering"]
+    }
+  },
+  "projects": {
+    "headline": "Featured Projects",
+    "subtitle": "9 shipped production systems built for real users and real business impact",
+    "viewAll": "View All 9 Projects",
+    "viewDetails": "View Details",
+    "items": {
+      "vanecom": {
+        "name": "Vanecom",
+        "period": "Nov 2024 – May 2025",
+        "team": "Team: 5",
+        "description": "Vietnamese e-commerce platform with web and mobile interfaces. Integrated OpenAI API for AI-driven product recommendations and automated customer support.",
+        "highlights": [
+          "AI product recommendations & support",
+          "Real-time delivery tracking via GiaoHangNhanh",
+          "Firebase notifications and live chat"
+        ],
+        "tech": ["Laravel", "jQuery", "OpenAI API", "Firebase", "9Pay", "ACB API", "GiaoHangNhanh"]
+      },
+      "hairnow": {
+        "name": "Hairnow",
+        "period": "May – Nov 2025",
+        "team": "Team: 5",
+        "description": "On-demand booking platform for hair and nail care services with real-time scheduling, live chat, and location-based search.",
+        "highlights": [
+          "Realtime user–provider chat via Socket.IO",
+          "Location-based search via Vietmap",
+          "Dual payment gateway (9Pay, Momo)"
+        ],
+        "tech": ["Laravel", "AdonisJS v6", "Socket.IO", "Firebase", "Vietmap", "9Pay", "Momo"]
+      },
+      "coolmate": {
+        "name": "Coolmate.me",
+        "period": "Nov 2023 – Nov 2024",
+        "team": "Team: 9",
+        "description": "Leading Vietnamese men's fashion e-commerce platform handling high-volume daily transactions with dual frontend architecture.",
+        "highlights": [
+          "High-volume order & inventory processing",
+          "Shopee cross-platform product sync",
+          "PortOne multi-method payment processing"
+        ],
+        "tech": ["Laravel", "ReactJS", "VueJS", "HTML/CSS/JS", "PortOne", "Shopee API"]
+      },
+      "jindo": {
+        "name": "Jindo App",
+        "period": "Jan 2025 – Apr 2025",
+        "team": "Team: 5",
+        "description": "Korean language learning app for Vietnamese users featuring interactive lessons, quizzes, and progress tracking.",
+        "highlights": [
+          "Interactive lessons and quizzes",
+          "Firebase auth, notifications & analytics",
+          "9Pay in-app subscriptions and purchases"
+        ],
+        "tech": ["Laravel", "jQuery", "Firebase", "9Pay"]
+      },
+      "adstart": {
+        "name": "Ad-Start",
+        "period": "Dec 2021 – May 2023",
+        "team": "Team: 5",
+        "description": "Centralized advertising management platform for Facebook and Google campaigns with automated ad creation and real-time performance dashboards.",
+        "highlights": [
+          "Facebook Marketing & Google Ads API integration",
+          "Automated campaign creation and reporting",
+          "Audience management and budget control"
+        ],
+        "tech": ["Laravel", "VueJS", "MySQL", "AWS S3", "Facebook Marketing API", "Google Ads API"]
+      },
+      "onsight": {
+        "name": "Onsight-php",
+        "period": "May 2023 – Nov 2023",
+        "team": "Team: 10",
+        "description": "Event management platform for creating, scheduling, and tracking events with real-time updates and calendar integrations.",
+        "highlights": [
+          "Interactive calendar views with ReactJS",
+          "Real-time event updates and push notifications",
+          "PostgreSQL-backed data architecture"
+        ],
+        "tech": ["Laravel", "ReactJS", "PostgreSQL"]
+      },
+      "tobilaphone": {
+        "name": "TobilaPhone Biz",
+        "period": "Aug 2022 – Nov 2023",
+        "team": "Team: 10",
+        "description": "Enterprise telephony solution for filtering, blocking, and managing unwanted or spam calls with centralized admin dashboard.",
+        "highlights": [
+          "Spam call filtering and blacklist management",
+          "Real-time call traffic monitoring",
+          "Centralized call rules configuration"
+        ],
+        "tech": ["CakePHP", "Laravel", "HTML/CSS/JS", "MySQL"]
+      },
+      "bizfly": {
+        "name": "Bizfly Email",
+        "period": "Oct 2020 – Nov 2021",
+        "team": "Team: 4",
+        "description": "Enterprise bulk email delivery system supporting scenario-based triggers, dynamic content personalization, and proactive spam-risk alerting.",
+        "highlights": [
+          "Scenario-based email triggers",
+          "Dynamic content personalization",
+          "MongoDB optimized for high-volume email logs"
+        ],
+        "tech": ["Laravel", "jQuery", "MongoDB"]
+      },
+      "remoteoffer": {
+        "name": "Remote-Offer",
+        "period": "Dec 2019 – Sep 2020",
+        "team": "Team: 4",
+        "description": "Recruitment platform for companies to post job listings, manage candidates, and publish company blogs with Stripe payment integration.",
+        "highlights": [
+          "Job listing and candidate management",
+          "Stripe paid job postings and subscriptions",
+          "Efficient search and application workflows"
+        ],
+        "tech": ["Laravel", "jQuery", "MySQL", "Stripe"]
+      }
+    }
+  },
+  "projectsPage": {
+    "title": "All Projects",
+    "description": "9 shipped production systems across e-commerce, SaaS, advertising, enterprise telephony, language learning, and AI-powered platforms."
+  },
+  "experience": {
+    "headline": "Work Experience",
+    "subtitle": "Building products across Vietnam and Japan — product companies and outsourcing",
+    "labels": {
+      "responsibilities": "Responsibilities",
+      "achievements": "Achievements"
+    },
+    "items": {
+      "freelance": {
+        "company": "Backend Developer — Remote / Freelancer",
+        "role": "Backend Developer",
+        "period": "Nov 2024 — Present",
+        "responsibilities": [
+          "Maintained and optimized Laravel-based backend systems for Japanese enterprise clients",
+          "Managed database schema migrations, query optimization, and zero-downtime deployment support",
+          "Utilized Claude Code, Cursor IDE, and GitHub Copilot to accelerate development velocity"
+        ],
+        "achievements": [
+          "Diagnosed and resolved complex bugs, improving API response times",
+          "Refactored legacy code to improve long-term maintainability"
+        ],
+        "technologies": ["Laravel", "MySQL", "Docker", "Claude Code", "Cursor IDE", "GitHub Copilot"],
+        "impact": "Delivering reliable backend maintenance and optimization for Japanese enterprise clients remotely."
+      },
+      "coolmate": {
+        "company": "Coolmate",
+        "role": "Full Stack Developer",
+        "period": "Nov 2023 — Nov 2024",
+        "responsibilities": [
+          "Developed and maintained Coolmate.me, a leading Vietnamese men's fashion e-commerce platform",
+          "Built robust Laravel backend for product management, order processing, inventory sync, and returns",
+          "Developed dynamic frontend interfaces using ReactJS, VueJS, and HTML/CSS/JS"
+        ],
+        "achievements": [
+          "Integrated Shopee API for cross-platform product synchronization",
+          "Integrated PortOne for secure, multi-method payment processing",
+          "Collaborated within a team of 9 to ensure high reliability at scale"
+        ],
+        "technologies": ["Laravel", "ReactJS", "VueJS", "MySQL", "Shopee API", "PortOne"],
+        "impact": "Contributed to Vietnam's leading fashion e-commerce platform handling high-volume daily transactions."
+      },
+      "cowell": {
+        "company": "CO-WELL Asia",
+        "role": "Full Stack Developer",
+        "period": "Dec 2021 — Nov 2023",
+        "responsibilities": [
+          "Contributed to multiple outsourcing projects for Japanese clients across advertising, telephony, and event management",
+          "Built Ad-Start integrating Facebook Marketing API and Google Ads API",
+          "Developed TobilaPhone Biz enterprise call-filtering system using CakePHP",
+          "Built Onsight-php real-time event scheduling platform with Laravel and ReactJS"
+        ],
+        "achievements": [
+          "Delivered Ad-Start for automated campaign creation, tracking, and reporting",
+          "Built enterprise telephony solution with real-time call traffic monitoring",
+          "Managed AWS S3 integration for scalable media asset storage"
+        ],
+        "technologies": ["Laravel", "CakePHP", "VueJS", "ReactJS", "PostgreSQL", "MySQL", "AWS S3"],
+        "impact": "Enabled reliable SaaS and enterprise solutions for Japanese market clients across multiple domains."
+      },
+      "vccorp": {
+        "company": "VCCorp",
+        "role": "Full Stack Developer",
+        "period": "Dec 2019 — Dec 2021",
+        "responsibilities": [
+          "Contributed to Bizfly Email, an enterprise-grade bulk email delivery system",
+          "Designed and optimized MongoDB schemas for high-volume email logs and campaign configurations",
+          "Integrated OpenAI API into Vanecom e-commerce for product recommendations and automated support"
+        ],
+        "achievements": [
+          "Built scenario-based email triggers with dynamic content personalization",
+          "Reduced manual customer support load through AI-powered Vanecom integration",
+          "Delivered Remote-Offer recruitment platform with Stripe payment integration"
+        ],
+        "technologies": ["Laravel", "jQuery", "MongoDB", "MySQL", "OpenAI API", "Stripe"],
+        "impact": "Built core features for enterprise email delivery and early AI integration in e-commerce."
+      }
+    }
+  },
+  "aiEngineering": {
+    "headline": "AI-Augmented Software Engineering",
+    "subtitle": "Using AI not as a shortcut, but as a force multiplier for software engineering.",
+    "tools": {
+      "openai": {
+        "name": "OpenAI API",
+        "description": "Integrated into Vanecom and VCCorp projects for personalized product recommendations and automated customer support."
+      },
+      "cursor": {
+        "name": "Cursor IDE",
+        "description": "Daily practitioner for AI-assisted code completion, real-time suggestions, and multi-file refactoring."
+      },
+      "claude": {
+        "name": "Claude Code",
+        "description": "Agentic terminal-driven workflows: writing features, reviewing pull requests, and refactoring legacy systems."
+      },
+      "copilot": {
+        "name": "GitHub Copilot",
+        "description": "Inline code suggestions and boilerplate generation across all active projects."
+      },
+      "prompt": {
+        "name": "Prompt Engineering",
+        "description": "Structured techniques for boilerplate generation, automated test writing, and technical documentation."
+      }
+    },
+    "workflow": {
+      "step1": "Understand Requirements",
+      "step2": "AI-Assisted Design",
+      "step3": "Accelerated Development",
+      "step4": "AI-Powered Review",
+      "step5": "Ship to Production"
+    }
+  },
+  "statistics": {
+    "headline": "By the Numbers",
+    "subtitle": "Measurable impact across years of product engineering",
+    "items": {
+      "experience": { "value": 6, "suffix": "+", "label": "Years Experience" },
+      "products": { "value": 9, "suffix": "", "label": "Projects Shipped" },
+      "companies": { "value": 4, "suffix": "+", "label": "Companies" },
+      "technologies": { "value": 20, "suffix": "+", "label": "Technologies" }
+    }
+  },
+  "contact": {
+    "headline": "Let's Build Something Great Together",
+    "subtitle": "Open to full-time opportunities, freelance projects, and technical collaborations. Based in Ha Noi, Vietnam.",
+    "email": "Email",
+    "phone": "Phone",
+    "github": "GitHub",
+    "location": "Location",
+    "cta": "Get In Touch",
+    "ctaDescription": "Ready to discuss your next project? I'd love to hear from you.",
+    "downloadResume": "Download Resume"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with Next.js, TypeScript & Framer Motion"
+  },
+  "language": {
+    "en": "English",
+    "vi": "Tiếng Việt",
+    "switch": "Language"
+  }
+}
