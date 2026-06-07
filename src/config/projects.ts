@@ -14,8 +14,8 @@ export const PROJECT_KEYS = [
 export const FEATURED_PROJECT_KEYS = [
   "coolmate",
   "hairnow",
-  "adstart",
-  "vanecom",
+  "vuongkimbao",
+  "bizfly",
 ] as const;
 
 export type ProjectKey = (typeof PROJECT_KEYS)[number];
