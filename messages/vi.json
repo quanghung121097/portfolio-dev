@@ -34,7 +34,7 @@
   },
   "companies": {
     "headline": "Được Tin Tưởng Bởi Các Công Ty Hàng Đầu Việt Nam",
-    "subtitle": "Cung cấp giải pháp production cho các đơn vị dẫn đầu ngành trong môi trường sản phẩm và outsourcing",
+    "subtitle": "Cung cấp giải pháp production cho các đơn vị dẫn đầu ngành trong môi trường Production và outsourcing",
     "items": {
       "coolmate": { "name": "Coolmate", "domain": "Thương mại điện tử thời trang" },
       "cowell": { "name": "CO-WELL Asia", "domain": "Outsourcing Nhật Bản" },
@@ -77,7 +77,7 @@
     "values": {
       "productMindset": {
         "title": "Tư Duy Sản Phẩm",
-        "description": "Khả năng triển khai trong cả môi trường sản phẩm và outsourcing, mỗi tính năng gắn với kết quả kinh doanh đo lường được."
+        "description": "Khả năng triển khai trong cả môi trường Production và outsourcing, mỗi tính năng gắn với kết quả kinh doanh đo lường được."
       },
       "problemSolving": {
         "title": "Giải Quyết Vấn Đề",
@@ -265,7 +265,7 @@
           "Phát triển Jindo App, ứng dụng học tiếng Hàn với bài học tương tác, Firebase analytics và đăng ký in-app qua 9Pay",
           "Phát triển Hairnow, nền tảng tìm stylist realtime với chat Socket.IO, định vị và tích hợp thanh toán — phát hành trên App Store",
           "Xây dựng backend Vương Kim Bảo cho app Flutter — tra cứu phong thủy, luận giải ngày sinh và gợi ý vật phẩm theo bản mệnh",
-          "Bảo trì và tối ưu hệ thống backend Laravel cho khách hàng doanh nghiệp Nhật Bản",
+          "Bảo trì và tối ưu hệ thống backend Laravel cho JAVIS Co., Ltd (công ty outsourcing Nhật Bản)",
           "Quản lý migration schema, tối ưu query và hỗ trợ triển khai zero-downtime"
         ],
         "achievements": [

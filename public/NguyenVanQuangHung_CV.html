@@ -37,21 +37,37 @@
   .wrap { box-shadow: none !important; margin: 0 !important; border-radius: 0 !important; max-width: 100% !important; width: 100% !important; }
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 
-  /* Prevent text from being cut across page breaks */
-  .exp     { break-inside: avoid; page-break-inside: avoid; }
+  /*
+   * Only apply break-inside:avoid to SMALL atomic units.
+   * Large containers (.sec, .proj-grid, .hdr) must NOT have it —
+   * they're too tall to fit on a single page and would cause huge
+   * white gaps as the browser pushes them wholesale to the next page.
+   */
+  .exp       { break-inside: avoid; page-break-inside: avoid; }
   .proj-card { break-inside: avoid; page-break-inside: avoid; }
-  .ai-box  { break-inside: avoid; page-break-inside: avoid; }
-  .sec     { break-inside: avoid; page-break-inside: avoid; }
-  .buls li { break-inside: avoid; page-break-inside: avoid; }
-  .proj-grid { break-inside: avoid; page-break-inside: avoid; }
-  .hdr     { break-inside: avoid; page-break-inside: avoid; }
+  .ai-box    { break-inside: avoid; page-break-inside: avoid; }
+  .buls li   { break-inside: avoid; page-break-inside: avoid; }
+
+  /* Keep headings glued to the content that follows */
   .sec-title { break-after: avoid; page-break-after: avoid; }
   .exp-hdr   { break-after: avoid; page-break-after: avoid; }
   .proj-name { break-after: avoid; page-break-after: avoid; }
 
-  /* Sidebar prints as dark block */
-  .sidebar { background: var(--sidebar-bg) !important; }
+  /* Tighten spacing in print to reduce total page count */
+  .hdr    { padding: 24px 36px 20px !important; }
+  .main   { padding: 20px 28px !important; }
+  .sidebar { padding: 20px 14px !important; background: var(--sidebar-bg) !important; }
+  .sec    { margin-bottom: 14px !important; }
+  .exp    { margin-bottom: 12px !important; padding: 10px 14px 10px 16px !important; }
+  .summary { margin-bottom: 2px !important; }
+  .buls li { margin-bottom: 2px !important; }
+
+  /* Projects grid: 2 columns, allow grid to flow across pages */
   .proj-grid { grid-template-columns: 1fr 1fr; }
+  .proj-card { padding: 10px 12px !important; margin-bottom: 0 !important; }
+
+  /* Better text flow */
+  p, li { orphans: 2; widows: 2; }
 }
 
 /* ─────────────── BASE ─────────────── */
@@ -417,7 +433,6 @@ body {
           <span class="tag">CakePHP</span>
           <span class="tag">Node.js</span>
           <span class="tag">AdonisJS v6</span>
-          <span class="tag">Flutter</span>
         </div>
       </div>
 
@@ -547,7 +562,7 @@ body {
             <li>Built <strong>Ad-Start</strong>, a multi-channel advertising management platform directly integrating Facebook Marketing API and Google Ads API for automated campaign creation, tracking, and reporting.</li>
             <li>Developed <strong>TobilaPhone Biz</strong>, an enterprise call-filtering system enabling businesses to block spam calls, manage blacklists, and monitor call traffic in real time using CakePHP.</li>
             <li>Built <strong>Onsight-php</strong>, a real-time event scheduling platform with calendar integration, user notifications, and PostgreSQL-backed data architecture using Laravel and ReactJS.</li>
-            <li>Managed <strong>AWS S3</strong> integration for scalable media asset storage across multiple projects.</li>
+            <!-- <li>Managed <strong>AWS S3</strong> integration for scalable media asset storage across multiple projects.</li> -->
           </ul>
         </div>
 
