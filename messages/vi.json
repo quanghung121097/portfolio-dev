@@ -14,11 +14,17 @@
   },
   "hero": {
     "greeting": "Lập Trình Viên Full Stack",
-    "headline": "Xây Dựng Sản Phẩm Số Quy Mô Lớn Có Ý Nghĩa.",
+    "headline": "Phát Triển Ứng Dụng Web Chuyên Nghiệp & Mở Rộng",
+    "headlineLines": [
+      { "text": "Phát Triển", "emphasis": false },
+      { "text": "Ứng Dụng Web", "emphasis": false },
+      { "text": "Chuyên Nghiệp", "emphasis": true },
+      { "text": "Mở Rộng.", "emphasis": false }
+    ],
     "subheadline": "Lập trình viên Full Stack đa năng với hơn 6 năm kinh nghiệm triển khai ứng dụng web production — từ nền tảng thương mại điện tử, SaaS đến hệ thống tổng đài doanh nghiệp và ứng dụng AI.",
     "metrics": {
       "experience": { "value": "6+", "label": "Năm Kinh Nghiệm" },
-      "projects": { "value": "9", "label": "Dự Án Hoàn Thành" },
+      "projects": { "value": "10", "label": "Dự Án Hoàn Thành" },
       "companies": { "value": "4+", "label": "Công Ty" }
     },
     "cta": {
@@ -27,7 +33,7 @@
     }
   },
   "companies": {
-    "headline": "Được Tin Tưởng Bởi Các Công Ty Hàng Đầu Việt Nam và Nhật Bản",
+    "headline": "Được Tin Tưởng Bởi Các Công Ty Hàng Đầu Việt Nam",
     "subtitle": "Cung cấp giải pháp production cho các đơn vị dẫn đầu ngành trong môi trường sản phẩm và outsourcing",
     "items": {
       "coolmate": { "name": "Coolmate", "domain": "Thương mại điện tử thời trang" },
@@ -43,25 +49,29 @@
     "stat1Label": "Kinh nghiệm",
     "stat1Value": "6+ năm",
     "stat2Label": "Dự án",
-    "stat2Value": "9 dự án",
+    "stat2Value": "10 dự án",
     "stat3Label": "Công ty",
     "stat3Value": "4+ tổ chức",
     "timeline": {
       "step1": {
         "title": "Kỹ Sư An Toàn Thông Tin",
-        "description": "Tốt nghiệp Kỹ sư An toàn Thông tin tại Học viện Kỹ thuật Mật mã (KMA), Việt Nam (2016–2021), xây dựng nền tảng vững chắc về hệ thống bảo mật."
+        "description": "Tốt nghiệp Kỹ sư An toàn Thông tin tại Học viện Kỹ thuật Mật mã (KMA), Việt Nam, xây dựng nền tảng vững chắc về hệ thống bảo mật."
       },
       "step2": {
         "title": "Full Stack Developer tại VCCorp",
-        "description": "Bắt đầu tại công ty công nghệ truyền thông lớn nhất Việt Nam, đóng góp Bizfly Email, Vanecom tích hợp OpenAI và nền tảng tuyển dụng Remote-Offer."
+        "description": "Bắt đầu tại công ty công nghệ truyền thông lớn nhất Việt Nam, đóng góp vào Bizfly Email — hệ thống gửi email hàng loạt cấp doanh nghiệp."
       },
       "step3": {
         "title": "Full Stack Developer tại CO-WELL Asia",
         "description": "Triển khai dự án outsourcing cho khách hàng Nhật Bản — nền tảng quảng cáo Ad-Start, tổng đài TobilaPhone Biz và quản lý sự kiện Onsight-php."
       },
       "step4": {
-        "title": "Full Stack & Freelance Developer",
-        "description": "Xây dựng thương mại điện tử Coolmate.me quy mô lớn, sau đó chuyển sang freelance remote bảo trì hệ thống Laravel cho doanh nghiệp Nhật Bản."
+        "title": "Full Stack Developer tại Coolmate",
+        "description": "Phát triển và duy trì Coolmate.me, nền tảng thương mại điện tử thời trang nam hàng đầu Việt Nam — xử lý giao dịch khối lượng lớn"
+      },
+      "step5": {
+        "title": "Remote / Freelance Developer",
+        "description": "Chuyển sang làm việc freelance remote — triển khai Vanda (Vanecom), Vương Kim Bảo, Jindo App và Hairnow, đồng thời bảo trì và tối ưu hệ thống Laravel cho khách hàng doanh nghiệp Nhật Bản."
       }
     },
     "values": {
@@ -75,7 +85,7 @@
       },
       "shipping": {
         "title": "Triển Khai Sản Phẩm Thực",
-        "description": "9 hệ thống production — từ thương mại điện tử khối lượng lớn đến tổng đài doanh nghiệp và nền tảng AI."
+        "description": "10 hệ thống production — từ thương mại điện tử khối lượng lớn đến tổng đài doanh nghiệp và nền tảng AI."
       },
       "learning": {
         "title": "Học Hỏi Liên Tục",
@@ -103,12 +113,13 @@
   },
   "projects": {
     "headline": "Dự Án Nổi Bật",
-    "subtitle": "9 hệ thống production được xây dựng cho người dùng và tác động kinh doanh thực tế",
-    "viewAll": "Xem Tất Cả 9 Dự Án",
+    "subtitle": "10 hệ thống production được xây dựng cho người dùng và tác động kinh doanh thực tế",
+    "viewAll": "Xem Tất Cả 10 Dự Án",
     "viewDetails": "Xem Chi Tiết",
     "items": {
       "vanecom": {
-        "name": "Vanecom",
+        "name": "Vanda (Vanecom)",
+        "context": "Remote / Freelance",
         "period": "Th11 2024 – Th5 2025",
         "team": "Team: 5",
         "description": "Nền tảng thương mại điện tử Việt Nam với giao diện web và mobile. Tích hợp OpenAI API cho gợi ý sản phẩm và hỗ trợ khách hàng tự động.",
@@ -120,16 +131,31 @@
         "tech": ["Laravel", "jQuery", "OpenAI API", "Firebase", "9Pay", "ACB API", "GiaoHangNhanh"]
       },
       "hairnow": {
-        "name": "Hairnow",
+        "name": "HairNow",
+        "context": "Remote / Freelance",
         "period": "Th5 – Th11 2025",
         "team": "Team: 5",
-        "description": "Nền tảng đặt lịch làm tóc và nail theo yêu cầu với lịch trình realtime, chat trực tiếp và tìm kiếm theo vị trí.",
+        "description": "Nền tảng tìm stylist realtime — kết nối khách hàng với chuyên gia làm tóc và làm đẹp đang sẵn sàng gần bạn, không cần đặt lịch trước. Đã phát hành trên App Store.",
         "highlights": [
+          "Tìm stylist realtime theo vị trí",
           "Chat realtime user–provider qua Socket.IO",
-          "Tìm kiếm theo vị trí qua Vietmap",
-          "Hỗ trợ thanh toán kép (9Pay, Momo)"
+          "Tính toán thời gian đến & tích hợp thanh toán"
         ],
         "tech": ["Laravel", "AdonisJS v6", "Socket.IO", "Firebase", "Vietmap", "9Pay", "Momo"]
+      },
+      "vuongkimbao": {
+        "name": "Vương Kim Bảo",
+        "context": "Remote / Freelance",
+        "period": "Th12 2025 – Hiện tại",
+        "team": "Team: 3",
+        "role": "Backend Developer",
+        "description": "Nền tảng tra cứu phong thủy toàn diện — khám phá vận mệnh, luận giải theo ngày sinh và tìm vật phẩm phong thủy phù hợp bản mệnh. Có mặt trên App Store.",
+        "highlights": [
+          "API luận giải vận mệnh theo ngày sinh",
+          "Gợi ý vật phẩm phong thủy theo bản mệnh",
+          "Backend Laravel cho ứng dụng Flutter"
+        ],
+        "tech": ["Laravel", "Flutter", "MySQL"]
       },
       "coolmate": {
         "name": "Coolmate.me",
@@ -145,6 +171,7 @@
       },
       "jindo": {
         "name": "Jindo App",
+        "context": "Remote / Freelance",
         "period": "Th1 2025 – Th4 2025",
         "team": "Team: 5",
         "description": "Ứng dụng học tiếng Hàn cho người Việt với bài học tương tác, quiz và theo dõi tiến độ.",
@@ -219,7 +246,7 @@
   },
   "projectsPage": {
     "title": "Tất Cả Dự Án",
-    "description": "9 hệ thống production trong thương mại điện tử, SaaS, quảng cáo, tổng đài doanh nghiệp, học ngôn ngữ và nền tảng AI."
+    "description": "10 hệ thống production trong thương mại điện tử, SaaS, quảng cáo, tổng đài doanh nghiệp, học ngôn ngữ, phong thủy và nền tảng AI."
   },
   "experience": {
     "headline": "Kinh Nghiệm Làm Việc",
@@ -231,19 +258,25 @@
     "items": {
       "freelance": {
         "company": "Backend Developer — Remote / Freelancer",
-        "role": "Backend Developer",
+        "role": "Lập Trình Viên Full Stack",
         "period": "Th11 2024 — Hiện tại",
         "responsibilities": [
+          "Xây dựng Vanda (Vanecom), nền tảng thương mại điện tử AI tích hợp OpenAI API cho gợi ý sản phẩm và hỗ trợ khách hàng tự động",
+          "Phát triển Jindo App, ứng dụng học tiếng Hàn với bài học tương tác, Firebase analytics và đăng ký in-app qua 9Pay",
+          "Phát triển Hairnow, nền tảng tìm stylist realtime với chat Socket.IO, định vị và tích hợp thanh toán — phát hành trên App Store",
+          "Xây dựng backend Vương Kim Bảo cho app Flutter — tra cứu phong thủy, luận giải ngày sinh và gợi ý vật phẩm theo bản mệnh",
           "Bảo trì và tối ưu hệ thống backend Laravel cho khách hàng doanh nghiệp Nhật Bản",
-          "Quản lý migration schema, tối ưu query và hỗ trợ triển khai zero-downtime",
-          "Sử dụng Claude Code, Cursor IDE và GitHub Copilot để tăng tốc phát triển"
+          "Quản lý migration schema, tối ưu query và hỗ trợ triển khai zero-downtime"
         ],
         "achievements": [
-          "Chẩn đoán và xử lý lỗi phức tạp, cải thiện thời gian phản hồi API",
-          "Refactor code legacy để cải thiện khả năng bảo trì lâu dài"
+          "Triển khai Vanda với gợi ý AI, chat Firebase và theo dõi giao hàng GiaoHangNhanh",
+          "Hoàn thành Jindo App với theo dõi tiến độ, push notification và luồng mua in-app qua 9Pay",
+          "Hoàn thành Hairnow với API AdonisJS hiệu năng cao và giao tiếp realtime user–provider trên iOS",
+          "Triển khai Vương Kim Bảo với API Laravel phục vụ tra cứu vận mệnh và gợi ý sản phẩm phong thủy",
+          "Chẩn đoán và xử lý lỗi phức tạp, cải thiện thời gian phản hồi API trên các hệ thống khách hàng"
         ],
-        "technologies": ["Laravel", "MySQL", "Docker", "Claude Code", "Cursor IDE", "GitHub Copilot"],
-        "impact": "Cung cấp bảo trì và tối ưu backend đáng tin cậy cho khách hàng doanh nghiệp Nhật Bản từ xa."
+        "technologies": ["Laravel", "Flutter", "AdonisJS v6", "OpenAI API", "Socket.IO", "Firebase", "MySQL", "Docker"],
+        "impact": "Triển khai sản phẩm AI, edtech, lifestyle và mobile realtime từ xa, đồng thời bảo trì hệ thống Laravel doanh nghiệp cho khách hàng Nhật Bản."
       },
       "coolmate": {
         "company": "Coolmate",
@@ -257,7 +290,7 @@
         "achievements": [
           "Tích hợp Shopee API cho đồng bộ sản phẩm đa kênh",
           "Tích hợp PortOne cho xử lý thanh toán đa phương thức an toàn",
-          "Phối hợp trong team 9 người đảm bảo độ tin cậy cao quy mô lớn"
+          "Phối hợp trong team đảm bảo độ tin cậy cao"
         ],
         "technologies": ["Laravel", "ReactJS", "VueJS", "MySQL", "Shopee API", "PortOne"],
         "impact": "Đóng góp vào nền tảng thương mại điện tử thời trang hàng đầu Việt Nam xử lý giao dịch khối lượng lớn."
@@ -287,15 +320,14 @@
         "responsibilities": [
           "Đóng góp Bizfly Email, hệ thống gửi email hàng loạt cấp doanh nghiệp",
           "Thiết kế và tối ưu schema MongoDB cho log email khối lượng lớn và cấu hình chiến dịch",
-          "Tích hợp OpenAI API vào Vanecom e-commerce cho gợi ý sản phẩm và hỗ trợ tự động"
+          "Triển khai trigger email theo kịch bản với cá nhân hóa nội dung động"
         ],
         "achievements": [
-          "Xây dựng trigger email theo kịch bản với cá nhân hóa nội dung động",
-          "Giảm tải hỗ trợ khách hàng thủ công qua tích hợp AI Vanecom",
-          "Triển khai nền tảng tuyển dụng Remote-Offer với tích hợp Stripe"
+          "Xây dựng tính năng cốt lõi cho hệ thống gửi email doanh nghiệp khối lượng lớn",
+          "Tối ưu mô hình dữ liệu MongoDB cho log email và theo dõi hoạt động chiến dịch"
         ],
-        "technologies": ["Laravel", "jQuery", "MongoDB", "MySQL", "OpenAI API", "Stripe"],
-        "impact": "Xây dựng tính năng cốt lõi cho hệ thống email doanh nghiệp và tích hợp AI sớm trong e-commerce."
+        "technologies": ["Laravel", "jQuery", "MongoDB"],
+        "impact": "Xây dựng tính năng cốt lõi cho hệ thống gửi email doanh nghiệp tại công ty công nghệ truyền thông lớn nhất Việt Nam."
       }
     }
   },
@@ -306,7 +338,7 @@
     "tools": {
       "openai": {
         "name": "OpenAI API",
-        "description": "Tích hợp vào Vanecom và dự án VCCorp cho gợi ý sản phẩm cá nhân hóa và hỗ trợ khách hàng tự động."
+        "description": "Tích hợp vào Vanda (Vanecom) trong giai đoạn freelance remote cho gợi ý sản phẩm cá nhân hóa và hỗ trợ khách hàng tự động."
       },
       "cursor": {
         "name": "Cursor IDE",
@@ -338,14 +370,14 @@
     "subtitle": "Tác động đo lường được qua nhiều năm kỹ thuật sản phẩm",
     "items": {
       "experience": { "value": 6, "suffix": "+", "label": "Năm Kinh Nghiệm" },
-      "products": { "value": 9, "suffix": "", "label": "Dự Án Hoàn Thành" },
+      "products": { "value": 10, "suffix": "", "label": "Dự Án Hoàn Thành" },
       "companies": { "value": 4, "suffix": "+", "label": "Công Ty" },
       "technologies": { "value": 20, "suffix": "+", "label": "Công Nghệ" }
     }
   },
   "contact": {
     "headline": "Cùng Xây Dựng Điều Gì Đó Tuyệt Vời",
-    "subtitle": "Sẵn sàng cho cơ hội full-time, dự án freelance và hợp tác kỹ thuật. Tại Hà Nội, Việt Nam.",
+    "subtitle": "Sẵn sàng cho cơ hội full-time, dự án freelance và hợp tác kỹ thuật.",
     "email": "Email",
     "phone": "Điện thoại",
     "github": "GitHub",

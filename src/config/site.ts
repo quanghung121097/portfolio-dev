@@ -1,13 +1,13 @@
 export const siteConfig = {
   name: "Hung Nguyen",
-  url: "https://hungnguyen.dev",
+  url: "https://nguyenvanquanghung.dev",
   ogImage: "/og-image.svg",
   role: "Full Stack Developer",
   contact: {
     email: "quanghung121097@gmail.com",
-    phone: "+84 989 523 497",
-    phoneDisplay: "0989 523 497",
-    github: "https://github.com/quang-hung",
+    phone: "+84 788 337 682",
+    phoneDisplay: "0788 337 682",
+    github: "https://github.com/quanghung121097",
     location: "Ha Noi, Vietnam",
   },
   resumePath: "/resume.pdf",

@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
 /* ══════════════════════════════════════════════════════════════
-   DEEP TECH & CYBERPUNK MINIMAL — Color System
+   SOFT GRAPHITE — Color System
    60 % brand-bg  ·  30 % brand-surface  ·  10 % brand-accent
    ══════════════════════════════════════════════════════════════ */
 
 @theme inline {
 
   /* ── Brand Tokens (source of truth) ── */
-  --color-brand-bg:           #121214;   /* Graphite — 60 % */
-  --color-brand-surface:      #1E2028;   /* Card / Component — 30 % */
+  --color-brand-bg:           #1F1F24;   /* Soft graphite — 60 % */
+  --color-brand-surface:      #2C2C34;   /* Card / Component — 30 % */
   --color-brand-text-main:    #F4F4F5;   /* Heading text */
-  --color-brand-text-muted:   #A1A1AA;   /* Description / secondary */
+  --color-brand-text-muted:   #B0B0B8;   /* Description / secondary */
   --color-brand-accent:       #FF4500;   /* Burnt orange CTA — 10 % */
 
   /* ── Semantic Aliases → used by Tailwind utilities ── */
-  --color-background:         #121214;
+  --color-background:         #1F1F24;
   --color-foreground:         #F4F4F5;
-  --color-card:               #1E2028;
+  --color-card:               #2C2C34;
   --color-card-foreground:    #F4F4F5;
-  --color-muted:              #191B22;
-  --color-muted-foreground:   #A1A1AA;
-  --color-border:             rgba(244, 244, 245, 0.07);
+  --color-muted:              #27272F;
+  --color-muted-foreground:   #B0B0B8;
+  --color-border:             rgba(244, 244, 245, 0.10);
   --color-accent:             #FF4500;
   --color-accent-foreground:  #F4F4F5;
 
@@ -37,6 +37,10 @@ html { scroll-behavior: smooth; }
 
 body {
   background-color: var(--color-background);
+  background-image:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(255, 69, 0, 0.045), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(255, 255, 255, 0.025), transparent 50%),
+    radial-gradient(ellipse 40% 30% at 0% 100%, rgba(255, 255, 255, 0.02), transparent 50%);
   color: var(--color-foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -50,12 +54,21 @@ body {
 
 /* ─── Typography ─────────────────────────────────── */
 
-/* 60 % rule: large display uses brand-text-main, no extra colour */
+/* Hero headline — refined scale, not oversized */
+.hero-display {
+  font-size: clamp(2rem, 4.2vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--color-foreground);
+}
+
+/* Legacy alias */
 .editorial-display {
-  font-size: clamp(3.25rem, 8.5vw, 9rem);
-  font-weight: 700;
-  line-height: 0.93;
-  letter-spacing: -0.03em;
+  font-size: clamp(2rem, 4.2vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
   color: var(--color-foreground);
 }
 
@@ -84,12 +97,12 @@ body {
 /* ─── Editorial Rules ────────────────────────────── */
 
 .editorial-rule        { border-top: 1px solid var(--color-border); }
-.editorial-rule-strong { border-top: 1px solid rgba(244, 244, 245, 0.12); }
+.editorial-rule-strong { border-top: 1px solid rgba(244, 244, 245, 0.14); }
 
-/* ─── Glass — brand-bg at 85 % opacity ───────────── */
+/* ─── Glass — brand-bg at 88 % opacity ───────────── */
 
 .glass {
-  background: rgba(18, 18, 20, 0.85);
+  background: rgba(31, 31, 36, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }

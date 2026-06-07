@@ -1,6 +1,7 @@
 export const PROJECT_KEYS = [
   "vanecom",
   "hairnow",
+  "vuongkimbao",
   "coolmate",
   "jindo",
   "adstart",
@@ -22,6 +23,7 @@ export type ProjectKey = (typeof PROJECT_KEYS)[number];
 export const projectGradients: Record<ProjectKey, string> = {
   vanecom: "from-violet-600/40 via-purple-600/30 to-indigo-600/20",
   hairnow: "from-pink-600/40 via-rose-600/30 to-orange-600/20",
+  vuongkimbao: "from-yellow-600/40 via-amber-600/30 to-orange-600/20",
   coolmate: "from-blue-600/40 via-indigo-600/30 to-violet-600/20",
   jindo: "from-amber-600/40 via-orange-600/30 to-red-600/20",
   adstart: "from-emerald-600/40 via-teal-600/30 to-cyan-600/20",
@@ -33,6 +35,9 @@ export const projectGradients: Record<ProjectKey, string> = {
 
 export const projectUrls: Partial<Record<ProjectKey, string>> = {
   vanecom: "https://vanecom.vn",
+  hairnow: "https://apps.apple.com/us/app/hairnow-find-a-stylist-now/id6761238190",
+  vuongkimbao:
+    "https://apps.apple.com/vn/app/v%C6%B0%C6%A1ng-kim-b%E1%BA%A3o/id6754622962?l=vi",
   adstart: "https://jp.ad-start.ai",
   bizfly: "https://bizfly.vn",
   remoteoffer: "https://remote-jobs.jp",

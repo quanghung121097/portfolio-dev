@@ -14,11 +14,17 @@
   },
   "hero": {
     "greeting": "Full Stack Developer",
-    "headline": "Building Scalable Digital Products That Matter.",
+    "headline": "Crafting High-Performance & Scalable Web Applications",
+    "headlineLines": [
+      { "text": "Crafting", "emphasis": false },
+      { "text": "High-Performance &", "emphasis": false },
+      { "text": "Scalable", "emphasis": true },
+      { "text": "Web Applications", "emphasis": false }
+    ],
     "subheadline": "Versatile Full Stack Developer with 6+ years of experience delivering production-grade web applications — from e-commerce platforms and SaaS tools to enterprise telephony systems and AI-powered applications.",
     "metrics": {
       "experience": { "value": "6+", "label": "Years Experience" },
-      "projects": { "value": "9", "label": "Projects Shipped" },
+      "projects": { "value": "10", "label": "Projects Shipped" },
       "companies": { "value": "4+", "label": "Companies" }
     },
     "cta": {
@@ -43,25 +49,29 @@
     "stat1Label": "Experience",
     "stat1Value": "6+ yrs",
     "stat2Label": "Projects",
-    "stat2Value": "9 shipped",
+    "stat2Value": "10 shipped",
     "stat3Label": "Companies",
     "stat3Value": "4+ orgs",
     "timeline": {
       "step1": {
         "title": "Information Security Graduate",
-        "description": "Graduated with a B.Eng. in Information Security from the Academy of Cryptography Techniques (KMA), Vietnam (2016–2021), building a strong foundation in secure systems and analytical thinking."
+        "description": "Graduated with a B.Eng. in Information Security from the Academy of Cryptography Techniques (KMA), Vietnam, building a strong foundation in secure systems and analytical thinking."
       },
       "step2": {
         "title": "Full Stack Developer at VCCorp",
-        "description": "Started at Vietnam's largest media technology company, contributing to Bizfly Email, Vanecom e-commerce with OpenAI integration, and Remote-Offer recruitment platform."
+        "description": "Started at Vietnam's largest media technology company, contributing to Bizfly Email — an enterprise-grade bulk email delivery system."
       },
       "step3": {
         "title": "Full Stack Developer at CO-WELL Asia",
         "description": "Delivered outsourcing projects for Japanese clients — Ad-Start advertising platform, TobilaPhone Biz enterprise telephony, and Onsight-php event management system."
       },
       "step4": {
-        "title": "Full Stack & Freelance Developer",
-        "description": "Built Coolmate.me e-commerce at scale, then transitioned to remote freelance work maintaining Laravel systems for Japanese enterprise clients while shipping AI-powered products."
+        "title": "Full Stack Developer at Coolmate",
+        "description": "Developed and maintained Coolmate.me, Vietnam's leading men's fashion e-commerce platform — handling high-volume transactions"
+      },
+      "step5": {
+        "title": "Remote / Freelance Developer",
+        "description": "Transitioned to remote freelance work — shipping Vanda (Vanecom), Vương Kim Bảo, Jindo App, and HairNow while maintaining and optimizing Laravel systems for Japanese enterprise clients."
       }
     },
     "values": {
@@ -75,7 +85,7 @@
       },
       "shipping": {
         "title": "Shipping Real Products",
-        "description": "9 production systems shipped — from high-volume e-commerce to enterprise telephony and AI-powered platforms."
+        "description": "10 production systems shipped — from high-volume e-commerce to enterprise telephony and AI-powered platforms."
       },
       "learning": {
         "title": "Continuous Learning",
@@ -103,12 +113,13 @@
   },
   "projects": {
     "headline": "Featured Projects",
-    "subtitle": "9 shipped production systems built for real users and real business impact",
-    "viewAll": "View All 9 Projects",
+    "subtitle": "10 shipped production systems built for real users and real business impact",
+    "viewAll": "View All 10 Projects",
     "viewDetails": "View Details",
     "items": {
       "vanecom": {
-        "name": "Vanecom",
+        "name": "Vanda (Vanecom)",
+        "context": "Remote / Freelance",
         "period": "Nov 2024 – May 2025",
         "team": "Team: 5",
         "description": "Vietnamese e-commerce platform with web and mobile interfaces. Integrated OpenAI API for AI-driven product recommendations and automated customer support.",
@@ -120,16 +131,31 @@
         "tech": ["Laravel", "jQuery", "OpenAI API", "Firebase", "9Pay", "ACB API", "GiaoHangNhanh"]
       },
       "hairnow": {
-        "name": "Hairnow",
+        "name": "HairNow",
+        "context": "Remote / Freelance",
         "period": "May – Nov 2025",
         "team": "Team: 5",
-        "description": "On-demand booking platform for hair and nail care services with real-time scheduling, live chat, and location-based search.",
+        "description": "Real-time stylist discovery platform — connect clients with available hair and beauty professionals nearby without appointments. Live on the App Store.",
         "highlights": [
+          "Real-time stylist availability & geolocation",
           "Realtime user–provider chat via Socket.IO",
-          "Location-based search via Vietmap",
-          "Dual payment gateway (9Pay, Momo)"
+          "Traffic-aware arrival & payment integrations"
         ],
         "tech": ["Laravel", "AdonisJS v6", "Socket.IO", "Firebase", "Vietmap", "9Pay", "Momo"]
+      },
+      "vuongkimbao": {
+        "name": "Vương Kim Bảo",
+        "context": "Remote / Freelance",
+        "period": "Dec 2025 – Present",
+        "team": "Team: 3",
+        "role": "Backend Developer",
+        "description": "Comprehensive feng shui lookup platform helping users explore fortune, interpret destiny by birth date, and discover feng shui items suited to their element. Available on the App Store.",
+        "highlights": [
+          "Birth date destiny interpretation APIs",
+          "Feng shui product recommendations by element",
+          "Laravel backend for Flutter mobile app"
+        ],
+        "tech": ["Laravel", "Flutter", "MySQL"]
       },
       "coolmate": {
         "name": "Coolmate.me",
@@ -145,6 +171,7 @@
       },
       "jindo": {
         "name": "Jindo App",
+        "context": "Remote / Freelance",
         "period": "Jan 2025 – Apr 2025",
         "team": "Team: 5",
         "description": "Korean language learning app for Vietnamese users featuring interactive lessons, quizzes, and progress tracking.",
@@ -219,7 +246,7 @@
   },
   "projectsPage": {
     "title": "All Projects",
-    "description": "9 shipped production systems across e-commerce, SaaS, advertising, enterprise telephony, language learning, and AI-powered platforms."
+    "description": "10 shipped production systems across e-commerce, SaaS, advertising, enterprise telephony, language learning, feng shui, and AI-powered platforms."
   },
   "experience": {
     "headline": "Work Experience",
@@ -231,19 +258,25 @@
     "items": {
       "freelance": {
         "company": "Backend Developer — Remote / Freelancer",
-        "role": "Backend Developer",
+        "role": "Full Stack Developer",
         "period": "Nov 2024 — Present",
         "responsibilities": [
+          "Built Vanda (Vanecom), an AI-powered Vietnamese e-commerce platform with OpenAI API integration for product recommendations and automated customer support",
+          "Developed Jindo App, a Korean language learning platform with interactive lessons, Firebase analytics, and 9Pay in-app subscriptions",
+          "Developed HairNow, a real-time stylist discovery platform with Socket.IO live chat, geolocation, and payment integrations — live on the App Store",
+          "Built Vương Kim Bảo backend for the Flutter app — comprehensive feng shui lookup, birth date interpretation, and element-based product recommendations",
           "Maintained and optimized Laravel-based backend systems for Japanese enterprise clients",
-          "Managed database schema migrations, query optimization, and zero-downtime deployment support",
-          "Utilized Claude Code, Cursor IDE, and GitHub Copilot to accelerate development velocity"
+          "Managed database schema migrations, query optimization, and zero-downtime deployment support"
         ],
         "achievements": [
-          "Diagnosed and resolved complex bugs, improving API response times",
-          "Refactored legacy code to improve long-term maintainability"
+          "Shipped Vanda with OpenAI-driven recommendations, Firebase live chat, and GiaoHangNhanh delivery tracking",
+          "Delivered Jindo App with progress tracking, push notifications, and in-app purchase flows via 9Pay",
+          "Delivered Hairnow with AdonisJS high-performance APIs and realtime user–provider communication on iOS",
+          "Shipped Vương Kim Bảo with Laravel APIs powering destiny lookup and feng shui product matching",
+          "Diagnosed and resolved complex bugs, improving API response times across client systems"
         ],
-        "technologies": ["Laravel", "MySQL", "Docker", "Claude Code", "Cursor IDE", "GitHub Copilot"],
-        "impact": "Delivering reliable backend maintenance and optimization for Japanese enterprise clients remotely."
+        "technologies": ["Laravel", "Flutter", "AdonisJS v6", "OpenAI API", "Socket.IO", "Firebase", "MySQL", "Docker"],
+        "impact": "Shipping AI-powered, edtech, lifestyle, and realtime mobile products remotely while maintaining enterprise Laravel systems for Japanese clients."
       },
       "coolmate": {
         "company": "Coolmate",
@@ -257,7 +290,7 @@
         "achievements": [
           "Integrated Shopee API for cross-platform product synchronization",
           "Integrated PortOne for secure, multi-method payment processing",
-          "Collaborated within a team of 9 to ensure high reliability at scale"
+          "Collaborated within a team to ensure high reliability at scale"
         ],
         "technologies": ["Laravel", "ReactJS", "VueJS", "MySQL", "Shopee API", "PortOne"],
         "impact": "Contributed to Vietnam's leading fashion e-commerce platform handling high-volume daily transactions."
@@ -287,15 +320,14 @@
         "responsibilities": [
           "Contributed to Bizfly Email, an enterprise-grade bulk email delivery system",
           "Designed and optimized MongoDB schemas for high-volume email logs and campaign configurations",
-          "Integrated OpenAI API into Vanecom e-commerce for product recommendations and automated support"
+          "Implemented scenario-based email triggers with dynamic content personalization"
         ],
         "achievements": [
-          "Built scenario-based email triggers with dynamic content personalization",
-          "Reduced manual customer support load through AI-powered Vanecom integration",
-          "Delivered Remote-Offer recruitment platform with Stripe payment integration"
+          "Built core features for enterprise bulk email delivery serving high-volume campaigns",
+          "Optimized MongoDB data models for email logs and activity tracking at scale"
         ],
-        "technologies": ["Laravel", "jQuery", "MongoDB", "MySQL", "OpenAI API", "Stripe"],
-        "impact": "Built core features for enterprise email delivery and early AI integration in e-commerce."
+        "technologies": ["Laravel", "jQuery", "MongoDB"],
+        "impact": "Built core features for enterprise bulk email delivery at Vietnam's largest media technology company."
       }
     }
   },
@@ -306,7 +338,7 @@
     "tools": {
       "openai": {
         "name": "OpenAI API",
-        "description": "Integrated into Vanecom and VCCorp projects for personalized product recommendations and automated customer support."
+        "description": "Integrated into Vanda (Vanecom) during remote freelance work for personalized product recommendations and automated customer support."
       },
       "cursor": {
         "name": "Cursor IDE",
@@ -338,14 +370,14 @@
     "subtitle": "Measurable impact across years of product engineering",
     "items": {
       "experience": { "value": 6, "suffix": "+", "label": "Years Experience" },
-      "products": { "value": 9, "suffix": "", "label": "Projects Shipped" },
+      "products": { "value": 10, "suffix": "", "label": "Projects Shipped" },
       "companies": { "value": 4, "suffix": "+", "label": "Companies" },
       "technologies": { "value": 20, "suffix": "+", "label": "Technologies" }
     }
   },
   "contact": {
     "headline": "Let's Build Something Great Together",
-    "subtitle": "Open to full-time opportunities, freelance projects, and technical collaborations. Based in Ha Noi, Vietnam.",
+    "subtitle": "Open to full-time opportunities, freelance projects, and technical collaborations.",
     "email": "Email",
     "phone": "Phone",
     "github": "GitHub",

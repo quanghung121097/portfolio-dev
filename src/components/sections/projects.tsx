@@ -45,6 +45,9 @@ export function ProjectsSection({
             const period = t.has(`items.${key}.period`)
               ? t(`items.${key}.period`)
               : null;
+            const context = t.has(`items.${key}.context`)
+              ? t(`items.${key}.context`)
+              : null;
             const isHovered = hoveredIndex === index;
 
             return (
@@ -69,6 +72,11 @@ export function ProjectsSection({
                             <h3 className="text-lg md:text-xl font-semibold text-foreground group-hover:text-accent transition-colors duration-300">
                               {t(`items.${key}.name`)}
                             </h3>
+                            {context && (
+                              <span className="font-mono text-[0.6rem] text-accent/80 flex-shrink-0">
+                                {context}
+                              </span>
+                            )}
                             {period && (
                               <span className="font-mono text-[0.6rem] text-muted-foreground flex-shrink-0">
                                 {period}

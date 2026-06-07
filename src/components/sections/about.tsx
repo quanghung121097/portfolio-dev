@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { FadeIn, SectionHeader, StaggerContainer } from "@/components/motion";
 import { MotionStaggerItem } from "@/components/motion/interactions";
 
-const timelineKeys = ["step1", "step2", "step3", "step4"] as const;
+const timelineKeys = ["step1", "step2", "step3", "step4", "step5"] as const;
 const valueKeys = ["productMindset", "problemSolving", "shipping", "learning"] as const;
 
 export async function AboutSection() {
