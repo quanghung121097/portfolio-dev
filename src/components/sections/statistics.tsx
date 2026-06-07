@@ -1,40 +1,41 @@
-"use client";
-
-import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import { AnimatedCounter, SectionHeader, StaggerContainer, staggerItem } from "@/components/motion";
+import { getTranslations } from "next-intl/server";
+import { FadeIn, AnimatedCounter } from "@/components/motion";
 
 const statKeys = ["experience", "products", "companies", "technologies"] as const;
 
-export function StatisticsSection() {
-  const t = useTranslations("statistics");
+export async function StatisticsSection() {
+  const t = await getTranslations("statistics");
 
   return (
-    <section className="section-padding bg-card/30 border-y border-white/5">
+    <section className="section-padding border-t border-white/6">
       <div className="container-max">
-        <SectionHeader headline={t("headline")} subtitle={t("subtitle")} />
+        <FadeIn>
+          <div className="flex items-center justify-between mb-12">
+            <p className="section-label">05 — {t("headline")}</p>
+            <p className="section-label hidden sm:block">{t("subtitle")}</p>
+          </div>
+          <div className="editorial-rule" />
+        </FadeIn>
 
-        <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
-          {statKeys.map((key) => {
+        <div className="grid grid-cols-2 lg:grid-cols-4">
+          {statKeys.map((key, i) => {
             const value = t.raw(`items.${key}.value`) as number;
             const suffix = t(`items.${key}.suffix`);
 
             return (
-              <motion.div
-                key={key}
-                variants={staggerItem}
-                className="text-center rounded-2xl border border-white/8 bg-card p-8 transition-all hover:border-indigo-500/30 hover:glow"
-              >
-                <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
-                  <AnimatedCounter value={value} suffix={suffix} />
+              <FadeIn key={key} delay={i * 0.1}>
+                <div className="border-t border-white/6 lg:border-t-0 lg:border-l first:lg:border-l-0 border-white/6 pt-8 lg:pt-10 lg:pl-10 first:lg:pl-0 pb-2">
+                  <div className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground tabular-nums">
+                    <AnimatedCounter value={value} suffix={suffix} />
+                  </div>
+                  <p className="section-label mt-3">
+                    {t(`items.${key}.label`)}
+                  </p>
                 </div>
-                <p className="text-sm text-muted-foreground">
-                  {t(`items.${key}.label`)}
-                </p>
-              </motion.div>
+              </FadeIn>
             );
           })}
-        </StaggerContainer>
+        </div>
       </div>
     </section>
   );

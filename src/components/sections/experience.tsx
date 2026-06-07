@@ -3,156 +3,152 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Building2 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { SectionHeader, StaggerContainer, staggerItem } from "@/components/motion";
-import { cn } from "@/lib/utils";
+import { FadeIn, SectionHeader } from "@/components/motion";
 
 const experienceKeys = ["freelance", "coolmate", "cowell", "vccorp"] as const;
+const ease = [0.16, 1, 0.3, 1] as const;
 
 export function ExperienceSection() {
   const t = useTranslations("experience");
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   return (
-    <section id="experience" className="section-padding bg-card/30 border-y border-white/5">
+    <section id="experience" className="section-padding border-t border-white/6">
       <div className="container-max">
-        <SectionHeader headline={t("headline")} subtitle={t("subtitle")} />
+        <SectionHeader
+          index="04"
+          headline={t("headline")}
+          subtitle={t("subtitle")}
+        />
 
-        <div className="max-w-4xl mx-auto">
-          <StaggerContainer className="relative">
-            <div className="absolute left-[19px] top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500/50 via-violet-500/20 to-transparent hidden md:block" />
+        <div className="space-y-0">
+          {experienceKeys.map((key, index) => {
+            const isActive = activeIndex === index;
+            const technologies = t.raw(`items.${key}.technologies`) as string[];
+            const responsibilities = t.raw(`items.${key}.responsibilities`) as string[];
+            const achievements = t.raw(`items.${key}.achievements`) as string[];
 
-            {experienceKeys.map((key, index) => {
-              const isActive = activeIndex === index;
-              const technologies = t.raw(`items.${key}.technologies`) as string[];
-              const responsibilities = t.raw(`items.${key}.responsibilities`) as string[];
-              const achievements = t.raw(`items.${key}.achievements`) as string[];
-
-              return (
-                <motion.div
-                  key={key}
-                  variants={staggerItem}
-                  className="relative mb-4 last:mb-0"
-                >
+            return (
+              <FadeIn key={key} delay={index * 0.07}>
+                <div className="border-t border-white/6 last:border-b">
+                  {/* ── Header row (clickable) ── */}
                   <button
-                    onClick={() => setActiveIndex(isActive ? -1 : index)}
-                    className={cn(
-                      "w-full text-left rounded-xl border transition-all duration-300",
-                      isActive
-                        ? "border-indigo-500/30 bg-card glow"
-                        : "border-white/8 bg-card/50 hover:border-white/15"
-                    )}
+                    onClick={() => setActiveIndex(isActive ? null : index)}
+                    className="w-full text-left py-7 group"
+                    aria-expanded={isActive}
                   >
-                    <div className="flex items-start gap-4 p-5 md:p-6">
-                      <div className="relative z-10 flex-shrink-0 hidden md:flex">
-                        <div
-                          className={cn(
-                            "flex h-10 w-10 items-center justify-center rounded-lg border transition-colors",
-                            isActive
-                              ? "border-indigo-500/50 bg-indigo-500/10"
-                              : "border-white/10 bg-card"
-                          )}
-                        >
-                          <Building2
-                            className={cn(
-                              "size-4",
-                              isActive ? "text-indigo-400" : "text-muted-foreground"
-                            )}
-                          />
+                    <div className="flex items-start justify-between gap-6">
+                      <div className="flex items-start gap-5">
+                        {/* Index */}
+                        <span className="font-mono text-[0.6rem] text-muted-foreground pt-0.5 flex-shrink-0 w-5">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+
+                        {/* Company + Role */}
+                        <div>
+                          <p className="text-lg md:text-xl font-semibold text-foreground group-hover:text-accent transition-colors duration-300">
+                            {t(`items.${key}.company`)}
+                          </p>
+                          <p className="text-sm text-muted-foreground mt-0.5">
+                            {t(`items.${key}.role`)}
+                          </p>
                         </div>
                       </div>
 
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-4">
-                          <div>
-                            <h3 className="text-lg font-semibold">
-                              {t(`items.${key}.company`)}
-                            </h3>
-                            <p className="text-sm text-indigo-400 mt-0.5">
-                              {t(`items.${key}.role`)}
-                            </p>
-                          </div>
-                          <div className="flex items-center gap-3 flex-shrink-0">
-                            <span className="text-sm text-muted-foreground hidden sm:block">
-                              {t(`items.${key}.period`)}
-                            </span>
-                            <ChevronDown
-                              className={cn(
-                                "size-5 text-muted-foreground transition-transform duration-300",
-                                isActive && "rotate-180"
-                              )}
-                            />
-                          </div>
-                        </div>
-                        <span className="text-sm text-muted-foreground sm:hidden mt-1 block">
+                      {/* Period + toggle */}
+                      <div className="flex items-center gap-4 flex-shrink-0 pt-0.5">
+                        <span className="font-mono text-[0.6rem] text-muted-foreground hidden sm:block">
                           {t(`items.${key}.period`)}
                         </span>
+                        <motion.div
+                          animate={{ rotate: isActive ? 45 : 0 }}
+                          transition={{ duration: 0.25, ease }}
+                          className="text-muted-foreground group-hover:text-foreground transition-colors w-4 h-4 flex items-center justify-center"
+                        >
+                          <span className="text-lg leading-none select-none">+</span>
+                        </motion.div>
                       </div>
                     </div>
 
-                    <AnimatePresence>
-                      {isActive && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="overflow-hidden"
-                        >
-                          <div className="px-5 md:px-6 pb-6 md:pl-[4.5rem] space-y-5 border-t border-white/5 pt-5">
-                            <p className="text-sm text-zinc-300 leading-relaxed italic">
-                              {t(`items.${key}.impact`)}
-                            </p>
+                    {/* Mobile period */}
+                    <p className="font-mono text-[0.6rem] text-muted-foreground mt-2 pl-10 sm:hidden">
+                      {t(`items.${key}.period`)}
+                    </p>
+                  </button>
 
+                  {/* ── Expanded detail ── */}
+                  <AnimatePresence initial={false}>
+                    {isActive && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4, ease }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-8 pl-10 space-y-6">
+                          {/* Impact statement */}
+                          <p className="text-sm text-zinc-400 leading-relaxed border-l-2 border-accent pl-4 italic">
+                            {t(`items.${key}.impact`)}
+                          </p>
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {/* Responsibilities */}
                             <div>
-                              <h4 className="text-sm font-medium mb-2 text-foreground">
+                              <p className="section-label mb-3">
                                 {t("labels.responsibilities")}
-                              </h4>
-                              <ul className="space-y-1.5">
+                              </p>
+                              <ul className="space-y-2">
                                 {responsibilities.map((item) => (
                                   <li
                                     key={item}
-                                    className="flex items-start gap-2 text-sm text-muted-foreground"
+                                    className="flex items-start gap-2.5 text-xs text-muted-foreground leading-relaxed"
                                   >
-                                    <span className="mt-2 h-1 w-1 rounded-full bg-indigo-400 flex-shrink-0" />
+                                    <span className="mt-1.5 h-1 w-1 rounded-full bg-white/30 flex-shrink-0" />
                                     {item}
                                   </li>
                                 ))}
                               </ul>
                             </div>
 
+                            {/* Achievements */}
                             <div>
-                              <h4 className="text-sm font-medium mb-2 text-foreground">
+                              <p className="section-label mb-3">
                                 {t("labels.achievements")}
-                              </h4>
-                              <ul className="space-y-1.5">
+                              </p>
+                              <ul className="space-y-2">
                                 {achievements.map((item) => (
                                   <li
                                     key={item}
-                                    className="flex items-start gap-2 text-sm text-muted-foreground"
+                                    className="flex items-start gap-2.5 text-xs text-muted-foreground leading-relaxed"
                                   >
-                                    <span className="mt-2 h-1 w-1 rounded-full bg-violet-400 flex-shrink-0" />
+                                    <span className="mt-1.5 h-1 w-1 rounded-full bg-accent/60 flex-shrink-0" />
                                     {item}
                                   </li>
                                 ))}
                               </ul>
                             </div>
-
-                            <div className="flex flex-wrap gap-1.5">
-                              {technologies.map((tech) => (
-                                <Badge key={tech}>{tech}</Badge>
-                              ))}
-                            </div>
                           </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </button>
-                </motion.div>
-              );
-            })}
-          </StaggerContainer>
+
+                          {/* Technologies */}
+                          <div className="flex flex-wrap gap-1.5 pt-1">
+                            {technologies.map((tech) => (
+                              <span
+                                key={tech}
+                                className="inline-flex items-center border border-white/8 px-2.5 py-1 text-[0.6rem] tracking-wide text-muted-foreground"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </FadeIn>
+            );
+          })}
         </div>
       </div>
     </section>

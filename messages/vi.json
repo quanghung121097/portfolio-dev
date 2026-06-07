@@ -28,15 +28,28 @@
   },
   "companies": {
     "headline": "Được Tin Tưởng Bởi Các Công Ty Hàng Đầu Việt Nam và Nhật Bản",
-    "subtitle": "Cung cấp giải pháp production cho các đơn vị dẫn đầu ngành trong môi trường sản phẩm và outsourcing"
+    "subtitle": "Cung cấp giải pháp production cho các đơn vị dẫn đầu ngành trong môi trường sản phẩm và outsourcing",
+    "items": {
+      "coolmate": { "name": "Coolmate", "domain": "Thương mại điện tử thời trang" },
+      "cowell": { "name": "CO-WELL Asia", "domain": "Outsourcing Nhật Bản" },
+      "vccorp": { "name": "VCCorp", "domain": "Công nghệ truyền thông" }
+    }
   },
   "about": {
     "headline": "Từ Nền Tảng Bảo Mật Đến Kỹ Thuật Sản Phẩm",
-    "subtitle": "Cử nhân An toàn Thông tin trở thành Lập trình viên Full Stack — triển khai sản phẩm thực tế đa lĩnh vực từ năm 2019.",
+    "subtitle": "Kỹ sư An toàn Thông tin trở thành Lập trình viên Full Stack — triển khai sản phẩm thực tế đa lĩnh vực từ năm 2019.",
+    "sectionLabel": "Giới thiệu",
+    "bio": "Kỹ sư An toàn Thông tin trở thành Lập trình viên Full Stack — triển khai sản phẩm thực tế đa lĩnh vực từ năm 2019.",
+    "stat1Label": "Kinh nghiệm",
+    "stat1Value": "6+ năm",
+    "stat2Label": "Dự án",
+    "stat2Value": "9 dự án",
+    "stat3Label": "Công ty",
+    "stat3Value": "4+ tổ chức",
     "timeline": {
       "step1": {
-        "title": "Cử Nhân An Toàn Thông Tin",
-        "description": "Tốt nghiệp Cử nhân An toàn Thông tin tại Học viện Kỹ thuật Mật mã (KMA), Việt Nam (2016–2021), xây dựng nền tảng vững chắc về hệ thống bảo mật."
+        "title": "Kỹ Sư An Toàn Thông Tin",
+        "description": "Tốt nghiệp Kỹ sư An toàn Thông tin tại Học viện Kỹ thuật Mật mã (KMA), Việt Nam (2016–2021), xây dựng nền tảng vững chắc về hệ thống bảo mật."
       },
       "step2": {
         "title": "Full Stack Developer tại VCCorp",
@@ -289,6 +302,7 @@
   "aiEngineering": {
     "headline": "Kỹ Thuật Phần Mềm Hỗ Trợ AI",
     "subtitle": "Sử dụng AI không phải như một lối tắt, mà như một công cụ nhân lực cho kỹ thuật phần mềm.",
+    "workflowLabel": "Quy trình",
     "tools": {
       "openai": {
         "name": "OpenAI API",

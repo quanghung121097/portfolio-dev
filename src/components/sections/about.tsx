@@ -1,79 +1,94 @@
-"use client";
+import { getTranslations } from "next-intl/server";
+import { FadeIn, SectionHeader, StaggerContainer } from "@/components/motion";
+import { MotionStaggerItem } from "@/components/motion/interactions";
 
-import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import { GraduationCap, Code, Layers, Rocket, Target, Lightbulb, Package, BookOpen } from "lucide-react";
-import { SectionHeader, StaggerContainer, staggerItem } from "@/components/motion";
+const timelineKeys = ["step1", "step2", "step3", "step4"] as const;
+const valueKeys = ["productMindset", "problemSolving", "shipping", "learning"] as const;
 
-const timelineSteps = [
-  { key: "step1", icon: GraduationCap },
-  { key: "step2", icon: Code },
-  { key: "step3", icon: Layers },
-  { key: "step4", icon: Rocket },
-] as const;
-
-const values = [
-  { key: "productMindset", icon: Target },
-  { key: "problemSolving", icon: Lightbulb },
-  { key: "shipping", icon: Package },
-  { key: "learning", icon: BookOpen },
-] as const;
-
-export function AboutSection() {
-  const t = useTranslations("about");
+export async function AboutSection() {
+  const t = await getTranslations("about");
 
   return (
     <section id="about" className="section-padding">
       <div className="container-max">
-        <SectionHeader headline={t("headline")} subtitle={t("subtitle")} />
+        <SectionHeader
+          index="01"
+          headline={t("headline")}
+          subtitle={t("subtitle")}
+        />
 
-        <div className="max-w-3xl mx-auto mb-20">
-          <StaggerContainer className="relative">
-            <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500/50 via-violet-500/30 to-transparent hidden sm:block" />
+        {/* ── Two-column asymmetric layout ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 lg:gap-24 mb-20">
+          {/* Left: sticky stats panel */}
+          <FadeIn direction="none">
+            <div className="lg:sticky lg:top-32 space-y-6">
+              <p className="section-label">{t("sectionLabel")}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {t("bio")}
+              </p>
+              <div className="space-y-0 pt-2">
+                {([
+                  { label: t("stat1Label"), value: t("stat1Value") },
+                  { label: t("stat2Label"), value: t("stat2Value") },
+                  { label: t("stat3Label"), value: t("stat3Value") },
+                ] as const).map(({ label, value }) => (
+                  <div
+                    key={label}
+                    className="flex justify-between items-baseline border-b border-white/6 py-3"
+                  >
+                    <span className="section-label">{label}</span>
+                    <span className="font-mono text-xs text-foreground">{value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
 
-            {timelineSteps.map(({ key, icon: Icon }, index) => (
-              <motion.div
-                key={key}
-                variants={staggerItem}
-                className="relative flex gap-6 pb-12 last:pb-0"
-              >
-                <div className="relative z-10 flex-shrink-0">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-card glow">
-                    <Icon className="size-5 text-indigo-400" />
+          {/* Right: timeline */}
+          <div className="space-y-0">
+            {timelineKeys.map((key, index) => (
+              <FadeIn key={key} delay={index * 0.08}>
+                <div className="border-t border-white/6 py-8 group">
+                  <div className="flex items-start gap-6">
+                    <span className="font-mono text-[0.6rem] text-muted-foreground pt-0.5 flex-shrink-0 w-5">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="flex-1">
+                      <h3 className="text-sm font-semibold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">
+                        {t(`timeline.${key}.title`)}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {t(`timeline.${key}.description`)}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="pt-1">
-                  <h3 className="text-lg font-semibold mb-2">
-                    {t(`timeline.${key}.title`)}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {t(`timeline.${key}.description`)}
-                  </p>
-                </div>
-                {index < timelineSteps.length - 1 && (
-                  <div className="absolute left-[23px] top-12 bottom-0 w-px bg-white/5 sm:hidden" />
-                )}
-              </motion.div>
+              </FadeIn>
             ))}
-          </StaggerContainer>
+          </div>
         </div>
 
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {values.map(({ key, icon: Icon }) => (
-            <motion.div
+        {/* ── Values row ── */}
+        <FadeIn>
+          <div className="editorial-rule" />
+        </FadeIn>
+
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-0">
+          {valueKeys.map((key, i) => (
+            <MotionStaggerItem
               key={key}
-              variants={staggerItem}
-              whileHover={{ y: -4 }}
-              className="rounded-xl border border-white/8 bg-card p-6 transition-shadow hover:glow"
+              className="border-t border-white/6 lg:border-t-0 lg:border-l first:lg:border-l-0 border-white/6 pt-8 lg:pt-8 lg:pl-8 first:lg:pl-0"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-500/10 mb-4">
-                <Icon className="size-5 text-indigo-400" />
-              </div>
-              <h4 className="font-semibold mb-2">{t(`values.${key}.title`)}</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="font-mono text-[0.6rem] tracking-[0.18em] uppercase text-accent mb-3">
+                {String(i + 1).padStart(2, "0")}
+              </p>
+              <h4 className="text-sm font-semibold text-foreground mb-2">
+                {t(`values.${key}.title`)}
+              </h4>
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 {t(`values.${key}.description`)}
               </p>
-            </motion.div>
+            </MotionStaggerItem>
           ))}
         </StaggerContainer>
       </div>

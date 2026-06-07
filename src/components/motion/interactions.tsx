@@ -3,6 +3,22 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { staggerItem } from "@/components/motion";
+
+/* ─── MotionStaggerItem — RSC-safe stagger child ─── */
+
+interface MotionStaggerItemProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export function MotionStaggerItem({ children, className }: MotionStaggerItemProps) {
+  return (
+    <motion.div variants={staggerItem} className={className}>
+      {children}
+    </motion.div>
+  );
+}
 
 interface MagneticButtonProps {
   children: React.ReactNode;

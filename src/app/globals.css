@@ -1,26 +1,39 @@
 @import "tailwindcss";
 
+/* ══════════════════════════════════════════════════════════════
+   DEEP TECH & CYBERPUNK MINIMAL — Color System
+   60 % brand-bg  ·  30 % brand-surface  ·  10 % brand-accent
+   ══════════════════════════════════════════════════════════════ */
+
 @theme inline {
-  --color-background: #09090b;
-  --color-foreground: #fafafa;
-  --color-card: #111113;
-  --color-card-foreground: #fafafa;
-  --color-muted: #18181b;
-  --color-muted-foreground: #a1a1aa;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-accent: #6366f1;
-  --color-accent-foreground: #fafafa;
+
+  /* ── Brand Tokens (source of truth) ── */
+  --color-brand-bg:           #121214;   /* Graphite — 60 % */
+  --color-brand-surface:      #1E2028;   /* Card / Component — 30 % */
+  --color-brand-text-main:    #F4F4F5;   /* Heading text */
+  --color-brand-text-muted:   #A1A1AA;   /* Description / secondary */
+  --color-brand-accent:       #FF4500;   /* Burnt orange CTA — 10 % */
+
+  /* ── Semantic Aliases → used by Tailwind utilities ── */
+  --color-background:         #121214;
+  --color-foreground:         #F4F4F5;
+  --color-card:               #1E2028;
+  --color-card-foreground:    #F4F4F5;
+  --color-muted:              #191B22;
+  --color-muted-foreground:   #A1A1AA;
+  --color-border:             rgba(244, 244, 245, 0.07);
+  --color-accent:             #FF4500;
+  --color-accent-foreground:  #F4F4F5;
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-* {
-  border-color: var(--color-border);
-}
+/* ─── Reset ──────────────────────────────────────── */
 
-html {
-  scroll-behavior: smooth;
-}
+* { border-color: var(--color-border); }
+
+html { scroll-behavior: smooth; }
 
 body {
   background-color: var(--color-background);
@@ -31,58 +44,128 @@ body {
 }
 
 ::selection {
-  background-color: rgba(99, 102, 241, 0.3);
-  color: #fafafa;
+  background-color: rgba(255, 69, 0, 0.22);
+  color: #F4F4F5;
 }
 
+/* ─── Typography ─────────────────────────────────── */
+
+/* 60 % rule: large display uses brand-text-main, no extra colour */
+.editorial-display {
+  font-size: clamp(3.25rem, 8.5vw, 9rem);
+  font-weight: 700;
+  line-height: 0.93;
+  letter-spacing: -0.03em;
+  color: var(--color-foreground);
+}
+
+/* Monospace metadata labels — neutral, not accent */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+}
+
+/* Gradient: text-main → muted → accent (10 % accent rule) */
 .gradient-text {
-  background: linear-gradient(135deg, #fafafa 0%, #a1a1aa 50%, #6366f1 100%);
+  background: linear-gradient(135deg, #F4F4F5 0%, #A1A1AA 55%, #FF4500 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.gradient-border {
-  position: relative;
+/* ─── Layout ─────────────────────────────────────── */
+
+.section-padding { @apply px-4 sm:px-6 lg:px-8 py-24 md:py-32; }
+.container-max   { @apply mx-auto max-w-6xl; }
+
+/* ─── Editorial Rules ────────────────────────────── */
+
+.editorial-rule        { border-top: 1px solid var(--color-border); }
+.editorial-rule-strong { border-top: 1px solid rgba(244, 244, 245, 0.12); }
+
+/* ─── Glass — brand-bg at 85 % opacity ───────────── */
+
+.glass {
+  background: rgba(18, 18, 20, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
+/* ─── Glow — 10 % accent rule: subtle, single source ─── */
+
+.glow {
+  box-shadow: 0 0 40px rgba(255, 69, 0, 0.10);
+}
+
+.glow-sm {
+  box-shadow: 0 0 20px rgba(255, 69, 0, 0.08);
+}
+
+/* ─── Gradient border — accent at max 35 % opacity ── */
+
+.gradient-border { position: relative; }
 .gradient-border::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(139, 92, 246, 0.2), transparent);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 69, 0, 0.35),
+    rgba(255, 100, 0, 0.12),
+    transparent
+  );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
 }
 
-.glass {
-  background: rgba(17, 17, 19, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
+/* ─── Hover underline — accent colour ─────────────── */
 
-.glow {
-  box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+.animated-underline { position: relative; }
+.animated-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-accent);
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+.animated-underline:hover::after { width: 100%; }
 
-.section-padding {
-  @apply px-4 sm:px-6 lg:px-8 py-24 md:py-32;
-}
+/* ─── Marquee ─────────────────────────────────────── */
 
-.container-max {
-  @apply mx-auto max-w-7xl;
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
+.animate-marquee { animation: marquee 30s linear infinite; }
+
+/* ─── Gradient shift (subtle background orbs) ────── */
 
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  50%       { background-position: 100% 50%; }
 }
-
 .animate-gradient {
   background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
+  animation: gradient-shift 12s ease infinite;
+}
+
+/* ─── Project list rows ──────────────────────────── */
+
+.project-row {
+  border-top: 1px solid var(--color-border);
+  transition: border-color 0.3s ease;
+}
+.project-row:hover {
+  /* 10 % rule: thin line hint, not a filled area */
+  border-color: rgba(255, 69, 0, 0.28);
 }

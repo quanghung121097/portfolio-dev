@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { Menu, X, Globe } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, Globe } from "lucide-react";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { siteConfig } from "@/config/site";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { routing, type Locale } from "@/i18n/routing";
 
@@ -27,7 +27,7 @@ export function Navbar() {
   const [langOpen, setLangOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -41,110 +41,134 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "glass border-b border-white/8 py-3"
-          : "bg-transparent py-5"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        scrolled ? "glass border-b border-white/6 py-4" : "bg-transparent py-6"
       )}
     >
       <nav className="container-max flex items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Wordmark */}
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight hover:opacity-80 transition-opacity"
+          className="font-mono text-xs tracking-[0.2em] uppercase text-foreground hover:text-muted-foreground transition-colors duration-300"
         >
           {siteConfig.name.split(" ")[0]}
-          <span className="text-indigo-400">.</span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-10">
           {navItems.map((item) => (
             <Link
               key={item.key}
               href={item.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="animated-underline text-xs tracking-[0.12em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               {t(item.key)}
             </Link>
           ))}
         </div>
 
-        <div className="hidden md:flex items-center gap-3">
+        {/* Desktop right */}
+        <div className="hidden md:flex items-center gap-5">
           <div className="relative">
-            <Button
-              variant="ghost"
-              size="sm"
+            <button
               onClick={() => setLangOpen(!langOpen)}
               aria-label={tLang("switch")}
-              className="gap-1.5"
+              className="flex items-center gap-1.5 text-xs tracking-[0.12em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
-              <Globe className="size-4" />
+              <Globe className="size-3" />
               {locale.toUpperCase()}
-            </Button>
-            {langOpen && (
-              <div className="absolute right-0 top-full mt-2 w-36 rounded-lg border border-white/10 bg-card p-1 shadow-xl">
+            </button>
+            <AnimatePresence>
+              {langOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 6 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute right-0 top-full mt-3 w-32 border border-white/8 bg-card"
+                >
+                  {routing.locales.map((loc) => (
+                    <button
+                      key={loc}
+                      onClick={() => switchLocale(loc)}
+                      className={cn(
+                        "w-full px-4 py-2.5 text-left text-xs tracking-widest uppercase transition-colors",
+                        loc === locale
+                          ? "text-foreground bg-white/5"
+                          : "text-muted-foreground hover:text-foreground hover:bg-white/3"
+                      )}
+                    >
+                      {tLang(loc)}
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          <Link
+            href="/projects"
+            className="text-xs tracking-[0.12em] uppercase border border-white/12 px-4 py-2 text-foreground hover:bg-white/5 transition-colors duration-300"
+          >
+            {t("viewProjects")} ↗
+          </Link>
+        </div>
+
+        {/* Mobile toggle */}
+        <button
+          className="md:hidden text-muted-foreground hover:text-foreground transition-colors"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+        >
+          {mobileOpen ? (
+            <X className="size-4" />
+          ) : (
+            <span className="font-mono text-xs tracking-widest">MENU</span>
+          )}
+        </button>
+      </nav>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden overflow-hidden glass border-t border-white/6"
+          >
+            <div className="container-max px-4 py-6 flex flex-col gap-1">
+              {navItems.map((item) => (
+                <Link
+                  key={item.key}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="px-2 py-3 text-xs tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground border-b border-white/5 transition-colors"
+                >
+                  {t(item.key)}
+                </Link>
+              ))}
+              <div className="flex gap-2 pt-4">
                 {routing.locales.map((loc) => (
                   <button
                     key={loc}
                     onClick={() => switchLocale(loc)}
                     className={cn(
-                      "w-full rounded-md px-3 py-2 text-left text-sm transition-colors",
+                      "flex-1 py-2 text-xs tracking-widest uppercase transition-colors border",
                       loc === locale
-                        ? "bg-indigo-500/20 text-indigo-300"
-                        : "text-muted-foreground hover:bg-white/5 hover:text-foreground"
+                        ? "border-white/20 text-foreground"
+                        : "border-white/6 text-muted-foreground hover:text-foreground"
                     )}
                   >
                     {tLang(loc)}
                   </button>
                 ))}
               </div>
-            )}
-          </div>
-          <Button asChild size="sm">
-            <Link href="/projects">{t("viewProjects")}</Link>
-          </Button>
-        </div>
-
-        <button
-          className="md:hidden p-2 text-muted-foreground hover:text-foreground"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
-      </nav>
-
-      {mobileOpen && (
-        <div className="md:hidden glass border-t border-white/8">
-          <div className="container-max px-4 py-4 flex flex-col gap-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.key}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className="rounded-lg px-4 py-3 text-sm text-muted-foreground hover:bg-white/5 hover:text-foreground transition-colors"
-              >
-                {t(item.key)}
-              </Link>
-            ))}
-            <div className="flex gap-2 pt-2 border-t border-white/8">
-              {routing.locales.map((loc) => (
-                <button
-                  key={loc}
-                  onClick={() => switchLocale(loc)}
-                  className={cn(
-                    "flex-1 rounded-lg px-3 py-2 text-sm transition-colors",
-                    loc === locale
-                      ? "bg-indigo-500/20 text-indigo-300"
-                      : "text-muted-foreground hover:bg-white/5"
-                  )}
-                >
-                  {tLang(loc)}
-                </button>
-              ))}
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

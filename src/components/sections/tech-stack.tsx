@@ -1,62 +1,61 @@
-"use client";
+import { getTranslations } from "next-intl/server";
+import { FadeIn, SectionHeader, StaggerContainer } from "@/components/motion";
+import { MotionStaggerItem } from "@/components/motion/interactions";
 
-import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import {
-  Server,
-  Monitor,
-  Database,
-  Cloud,
-  Sparkles,
-} from "lucide-react";
-import { SectionHeader, StaggerContainer, staggerItem } from "@/components/motion";
-
-const categories = [
-  { key: "backend", icon: Server, color: "text-blue-400", bg: "from-blue-500/10" },
-  { key: "frontend", icon: Monitor, color: "text-violet-400", bg: "from-violet-500/10" },
-  { key: "databases", icon: Database, color: "text-emerald-400", bg: "from-emerald-500/10" },
-  { key: "devops", icon: Cloud, color: "text-amber-400", bg: "from-amber-500/10" },
-  { key: "ai", icon: Sparkles, color: "text-indigo-400", bg: "from-indigo-500/10" },
+const categoryMeta = [
+  { key: "backend",   accent: "text-cyan-400" },   /* electric — cyberpunk */
+  { key: "frontend",  accent: "text-violet-400" },  /* electric purple */
+  { key: "databases", accent: "text-emerald-400" }, /* matrix green */
+  { key: "devops",    accent: "text-amber-400" },   /* warm gold */
+  { key: "ai",        accent: "text-accent" },      /* brand accent — most prominent */
 ] as const;
 
-export function TechStackSection() {
-  const t = useTranslations("techStack");
+export async function TechStackSection() {
+  const t = await getTranslations("techStack");
 
   return (
-    <section className="section-padding bg-card/30 border-y border-white/5">
+    <section className="section-padding border-t border-white/6">
       <div className="container-max">
-        <SectionHeader headline={t("headline")} subtitle={t("subtitle")} />
+        <SectionHeader
+          index="02"
+          headline={t("headline")}
+          subtitle={t("subtitle")}
+        />
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map(({ key, icon: Icon, color, bg }) => {
+        <StaggerContainer className="space-y-0">
+          {categoryMeta.map(({ key, accent }) => {
             const skills = t.raw(`skills.${key}`) as string[];
             return (
-              <motion.div
-                key={key}
-                variants={staggerItem}
-                whileHover={{ y: -4 }}
-                className="group rounded-2xl border border-white/8 bg-card p-6 transition-all duration-300 hover:border-indigo-500/30 hover:glow"
-              >
-                <div className={`inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br ${bg} to-transparent border border-white/5 mb-5`}>
-                  <Icon className={`size-5 ${color}`} />
+              <MotionStaggerItem key={key} className="border-t border-white/6 py-6">
+                <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-12">
+                  {/* Category label */}
+                  <div className="flex-shrink-0 sm:w-36">
+                    <p className={`section-label ${accent}`}>
+                      {t(`categories.${key}`)}
+                    </p>
+                  </div>
+
+                  {/* Skills as inline tags */}
+                  <div className="flex flex-wrap gap-2 flex-1">
+                    {skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="inline-flex items-center border border-white/8 px-3 py-1.5 text-xs text-zinc-300 hover:border-white/20 hover:text-foreground transition-colors duration-200"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold mb-4">
-                  {t(`categories.${key}`)}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="inline-flex items-center rounded-md border border-white/8 bg-white/5 px-2.5 py-1 text-xs font-medium text-zinc-300 transition-colors group-hover:border-white/15 group-hover:bg-white/8"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
+              </MotionStaggerItem>
             );
           })}
         </StaggerContainer>
+
+        {/* Bottom rule */}
+        <FadeIn>
+          <div className="editorial-rule mt-0" />
+        </FadeIn>
       </div>
     </section>
   );

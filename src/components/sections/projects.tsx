@@ -1,20 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import {
   FEATURED_PROJECT_KEYS,
   PROJECT_KEYS,
-  projectGradients,
   projectUrls,
   type ProjectKey,
 } from "@/config/projects";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { SectionHeader, StaggerContainer, staggerItem } from "@/components/motion";
-import { TiltCard } from "@/components/motion/interactions";
+import { FadeIn, SectionHeader } from "@/components/motion";
+
+const ease = [0.16, 1, 0.3, 1] as const;
 
 interface ProjectsSectionProps {
   showViewAll?: boolean;
@@ -27,102 +26,132 @@ export function ProjectsSection({
 }: ProjectsSectionProps) {
   const t = useTranslations("projects");
   const keys = featured ? FEATURED_PROJECT_KEYS : PROJECT_KEYS;
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section id="projects" className="section-padding">
+    <section id="projects" className="section-padding border-t border-white/6">
       <div className="container-max">
-        <SectionHeader headline={t("headline")} subtitle={t("subtitle")} />
+        <SectionHeader
+          index="03"
+          headline={t("headline")}
+          subtitle={t("subtitle")}
+        />
 
-        <StaggerContainer className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {keys.map((key) => {
+        {/* ── Project indexed list ── */}
+        <div>
+          {keys.map((key, index) => {
             const tech = t.raw(`items.${key}.tech`) as string[];
-            const highlights = t.raw(`items.${key}.highlights`) as string[];
             const url = projectUrls[key as ProjectKey];
             const period = t.has(`items.${key}.period`)
               ? t(`items.${key}.period`)
               : null;
-            const team = t.has(`items.${key}.team`)
-              ? t(`items.${key}.team`)
-              : null;
+            const isHovered = hoveredIndex === index;
 
             return (
-              <motion.div key={key} variants={staggerItem}>
-                <TiltCard>
-                  <article className="group rounded-2xl border border-white/8 bg-card overflow-hidden transition-all duration-300 hover:border-indigo-500/30 hover:glow">
-                    <div
-                      className={`relative h-48 bg-gradient-to-br ${projectGradients[key as ProjectKey]} flex flex-col justify-end p-6`}
-                    >
-                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent_50%)]" />
-                      <div className="relative flex items-end justify-between gap-4">
-                        <div>
-                          <h3 className="text-2xl font-bold">
-                            {t(`items.${key}.name`)}
-                          </h3>
-                          {(period || team) && (
-                            <p className="text-xs text-white/70 mt-1">
-                              {[period, team].filter(Boolean).join(" · ")}
-                            </p>
-                          )}
+              <FadeIn key={key} delay={index * 0.05}>
+                <div
+                  className="project-row group"
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <div className="py-6 md:py-7">
+                    {/* ── Main row ── */}
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-start gap-5 flex-1 min-w-0">
+                        {/* Index */}
+                        <span className="font-mono text-[0.6rem] text-muted-foreground pt-1 flex-shrink-0 w-5">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+
+                        {/* Name + meta */}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-baseline gap-3 flex-wrap">
+                            <h3 className="text-lg md:text-xl font-semibold text-foreground group-hover:text-accent transition-colors duration-300">
+                              {t(`items.${key}.name`)}
+                            </h3>
+                            {period && (
+                              <span className="font-mono text-[0.6rem] text-muted-foreground flex-shrink-0">
+                                {period}
+                              </span>
+                            )}
+                          </div>
+
+                          {/* Tech tags */}
+                          <div className="flex flex-wrap gap-1.5 mt-2">
+                            {tech.slice(0, 4).map((item) => (
+                              <span
+                                key={item}
+                                className="inline-flex items-center border border-white/6 px-2 py-0.5 text-[0.6rem] tracking-wide text-muted-foreground"
+                              >
+                                {item}
+                              </span>
+                            ))}
+                            {tech.length > 4 && (
+                              <span className="text-[0.6rem] text-muted-foreground self-center">
+                                +{tech.length - 4}
+                              </span>
+                            )}
+                          </div>
                         </div>
-                        {url && (
-                          <a
-                            href={url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/20 bg-black/20 text-white/80 transition-colors hover:bg-white/10 hover:text-white"
-                            aria-label={`Visit ${t(`items.${key}.name`)}`}
-                          >
-                            <ExternalLink className="size-4" />
-                          </a>
-                        )}
                       </div>
+
+                      {/* External link */}
+                      {url ? (
+                        <a
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Visit ${t(`items.${key}.name`)}`}
+                          className="flex-shrink-0 text-muted-foreground hover:text-foreground transition-colors duration-300 pt-1"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <ArrowUpRight className="size-4" />
+                        </a>
+                      ) : (
+                        <div className="flex-shrink-0 w-4 pt-1" />
+                      )}
                     </div>
 
-                    <div className="p-6">
-                      <p className="text-muted-foreground leading-relaxed mb-4">
-                        {t(`items.${key}.description`)}
-                      </p>
-
-                      <ul className="space-y-1.5 mb-5">
-                        {highlights.map((highlight) => (
-                          <li
-                            key={highlight}
-                            className="flex items-center gap-2 text-sm text-zinc-400"
-                          >
-                            <span className="h-1 w-1 rounded-full bg-indigo-400" />
-                            {highlight}
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="flex flex-wrap gap-1.5">
-                        {tech.map((item) => (
-                          <Badge key={item} variant="accent">
-                            {item}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </article>
-                </TiltCard>
-              </motion.div>
+                    {/* ── Expandable description on hover ── */}
+                    <AnimatePresence>
+                      {isHovered && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.35, ease }}
+                          className="overflow-hidden"
+                        >
+                          <p className="pt-4 pl-10 text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                            {t(`items.${key}.description`)}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </div>
+              </FadeIn>
             );
           })}
-        </StaggerContainer>
+
+          {/* Bottom rule */}
+          <div className="editorial-rule" />
+        </div>
 
         {showViewAll && featured && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="flex justify-center mt-12"
+            className="mt-12 flex justify-start"
           >
-            <Button asChild variant="outline" size="lg">
-              <Link href="/projects">
-                {t("viewAll")}
-                <ArrowUpRight className="size-4" />
-              </Link>
-            </Button>
+            <Link
+              href="/projects"
+              className="flex items-center gap-2 text-xs tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground animated-underline transition-colors duration-300"
+            >
+              {t("viewAll")}
+              <ArrowUpRight className="size-3" />
+            </Link>
           </motion.div>
         )}
       </div>

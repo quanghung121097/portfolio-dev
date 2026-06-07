@@ -1,109 +1,116 @@
-"use client";
-
-import { useTranslations } from "next-intl";
-import { Mail, Phone, Github, MapPin, ArrowUpRight } from "lucide-react";
+import { getTranslations } from "next-intl/server";
+import { Mail, Phone, Github, MapPin, ArrowUpRight, Download } from "lucide-react";
 import { siteConfig } from "@/config/site";
-import { Button } from "@/components/ui/button";
-import { SectionHeader, FadeIn, StaggerContainer, staggerItem } from "@/components/motion";
-import { MagneticButton } from "@/components/motion/interactions";
-import { motion } from "framer-motion";
+import { FadeIn, ScrollLine } from "@/components/motion";
 
 const contactItems = [
   {
-    key: "email",
+    key: "email" as const,
     icon: Mail,
     href: `mailto:${siteConfig.contact.email}`,
     value: siteConfig.contact.email,
   },
   {
-    key: "phone",
+    key: "phone" as const,
     icon: Phone,
     href: `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`,
     value: siteConfig.contact.phoneDisplay,
   },
   {
-    key: "github",
+    key: "github" as const,
     icon: Github,
     href: siteConfig.contact.github,
     value: "GitHub",
   },
   {
-    key: "location",
+    key: "location" as const,
     icon: MapPin,
     href: undefined,
     value: siteConfig.contact.location,
   },
 ] as const;
 
-export function ContactSection() {
-  const t = useTranslations("contact");
+export async function ContactSection() {
+  const t = await getTranslations("contact");
 
   return (
-    <section id="contact" className="section-padding relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-indigo-600/15 blur-[100px]" />
-      </div>
-
+    <section id="contact" className="section-padding border-t border-white/6">
       <div className="container-max">
-        <SectionHeader headline={t("headline")} subtitle={t("subtitle")} />
+        <FadeIn>
+          <p className="section-label mb-6">06 — {t("headline").split(" ")[0]}</p>
+          <ScrollLine />
+        </FadeIn>
 
-        <div className="max-w-3xl mx-auto">
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-            {contactItems.map(({ key, icon: Icon, href, value }) => (
-              <motion.div key={key} variants={staggerItem}>
-                {href ? (
-                  <a
-                    href={href}
-                    target={key === "email" || key === "phone" ? undefined : "_blank"}
-                    rel={key === "email" || key === "phone" ? undefined : "noopener noreferrer"}
-                    className="group flex items-center gap-4 rounded-xl border border-white/8 bg-card p-5 transition-all hover:border-indigo-500/30 hover:glow"
-                  >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-500/10 group-hover:bg-indigo-500/20 transition-colors">
-                      <Icon className="size-4 text-indigo-400" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-muted-foreground">{t(key)}</p>
-                      <p className="text-sm font-medium">{value}</p>
-                    </div>
-                  </a>
-                ) : (
-                  <div className="flex items-center gap-4 rounded-xl border border-white/8 bg-card p-5">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-500/10">
-                      <Icon className="size-4 text-indigo-400" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-muted-foreground">{t(key)}</p>
-                      <p className="text-sm font-medium">{value}</p>
-                    </div>
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </StaggerContainer>
+        {/* ── Editorial large CTA ── */}
+        <FadeIn delay={0.1}>
+          <div className="py-14 md:py-20">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
+              {t("headline")}
+            </h2>
+            <p className="text-sm text-muted-foreground mt-5 max-w-md leading-relaxed">
+              {t("subtitle")}
+            </p>
+          </div>
+        </FadeIn>
 
-          <FadeIn>
-            <div className="text-center rounded-2xl border border-white/8 bg-gradient-to-br from-indigo-500/10 via-card to-violet-500/10 p-10 gradient-border">
-              <p className="text-muted-foreground mb-6">{t("ctaDescription")}</p>
-              <div className="flex flex-wrap items-center justify-center gap-4">
-                <MagneticButton>
-                  <Button asChild size="lg">
-                    <a href={`mailto:${siteConfig.contact.email}`}>
-                      {t("cta")}
-                      <ArrowUpRight className="size-4" />
-                    </a>
-                  </Button>
-                </MagneticButton>
-                <MagneticButton>
-                  <Button asChild variant="outline" size="lg">
+        <FadeIn delay={0.15}>
+          <div className="editorial-rule mb-10" />
+        </FadeIn>
+
+        {/* ── Contact info ── */}
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-10">
+          {/* Contact links */}
+          <FadeIn delay={0.2}>
+            <div className="space-y-0">
+              {contactItems.map(({ key, icon: Icon, href, value }) => (
+                <div key={key} className="border-b border-white/5 last:border-b-0 py-3">
+                  {href ? (
                     <a
-                      href={siteConfig.resumePath}
-                      download={siteConfig.resumeFileName}
+                      href={href}
+                      target={key === "github" ? "_blank" : undefined}
+                      rel={key === "github" ? "noopener noreferrer" : undefined}
+                      className="flex items-center gap-3 group"
                     >
-                      {t("downloadResume")}
+                      <Icon className="size-3 text-muted-foreground group-hover:text-foreground transition-colors flex-shrink-0" />
+                      <div className="flex items-baseline gap-3">
+                        <span className="section-label w-14">{t(key)}</span>
+                        <span className="text-xs text-muted-foreground group-hover:text-foreground animated-underline transition-colors">
+                          {value}
+                        </span>
+                      </div>
                     </a>
-                  </Button>
-                </MagneticButton>
-              </div>
+                  ) : (
+                    <div className="flex items-center gap-3">
+                      <Icon className="size-3 text-muted-foreground flex-shrink-0" />
+                      <div className="flex items-baseline gap-3">
+                        <span className="section-label w-14">{t(key)}</span>
+                        <span className="text-xs text-muted-foreground">{value}</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+
+          {/* CTAs */}
+          <FadeIn delay={0.3}>
+            <div className="flex flex-col gap-3 sm:items-end">
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
+                className="flex items-center gap-2 text-xs tracking-[0.12em] uppercase border border-white/15 px-6 py-3 text-foreground hover:bg-white/5 transition-colors duration-300"
+              >
+                {t("cta")}
+                <ArrowUpRight className="size-3" />
+              </a>
+              <a
+                href={siteConfig.resumePath}
+                download={siteConfig.resumeFileName}
+                className="flex items-center gap-2 text-xs tracking-[0.12em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
+              >
+                <Download className="size-3" />
+                {t("downloadResume")}
+              </a>
             </div>
           </FadeIn>
         </div>

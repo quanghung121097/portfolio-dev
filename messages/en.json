@@ -28,11 +28,24 @@
   },
   "companies": {
     "headline": "Trusted by Leading Companies Across Vietnam and Japan",
-    "subtitle": "Delivering production-grade solutions for industry leaders in product and outsourcing environments"
+    "subtitle": "Delivering production-grade solutions for industry leaders in product and outsourcing environments",
+    "items": {
+      "coolmate": { "name": "Coolmate", "domain": "Fashion E-commerce" },
+      "cowell": { "name": "CO-WELL Asia", "domain": "Japanese Outsourcing" },
+      "vccorp": { "name": "VCCorp", "domain": "Media Technology" }
+    }
   },
   "about": {
     "headline": "From Security Foundations to Product Engineering",
     "subtitle": "B.Eng. Information Security graduate turned Full Stack Developer — shipping real products across diverse domains since 2019.",
+    "sectionLabel": "Background",
+    "bio": "B.Eng. Information Security turned Full Stack Developer — shipping real products across diverse domains since 2019.",
+    "stat1Label": "Experience",
+    "stat1Value": "6+ yrs",
+    "stat2Label": "Projects",
+    "stat2Value": "9 shipped",
+    "stat3Label": "Companies",
+    "stat3Value": "4+ orgs",
     "timeline": {
       "step1": {
         "title": "Information Security Graduate",
@@ -289,6 +302,7 @@
   "aiEngineering": {
     "headline": "AI-Augmented Software Engineering",
     "subtitle": "Using AI not as a shortcut, but as a force multiplier for software engineering.",
+    "workflowLabel": "Workflow",
     "tools": {
       "openai": {
         "name": "OpenAI API",
