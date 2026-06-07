@@ -34,7 +34,7 @@ export const projectGradients: Record<ProjectKey, string> = {
 };
 
 export const projectUrls: Partial<Record<ProjectKey, string>> = {
-  vanecom: "https://vanecom.vn",
+  // vanecom: "https://vanecom.vn",
   hairnow: "https://apps.apple.com/us/app/hairnow-find-a-stylist-now/id6761238190",
   vuongkimbao:
     "https://apps.apple.com/vn/app/v%C6%B0%C6%A1ng-kim-b%E1%BA%A3o/id6754622962?l=vi",
