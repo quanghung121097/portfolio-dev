@@ -1,8 +1,8 @@
 {
   "metadata": {
     "title": "Hung Nguyen — Lập Trình Viên Full Stack",
-    "description": "Lập trình viên Full Stack đa năng với hơn 6 năm kinh nghiệm triển khai ứng dụng web production trong thương mại điện tử, SaaS, tổng đài doanh nghiệp, quảng cáo và nền tảng AI.",
-    "keywords": "Full Stack Developer, Laravel, React, Vue, Node.js, AdonisJS, Thương mại điện tử, AI Engineering, OpenAI, Việt Nam, Hà Nội"
+    "description": "Lập trình viên Full Stack đa năng với hơn 6 năm kinh nghiệm triển khai ứng dụng web production trong đó có thương mại điện tử, SaaS, quảng cáo...",
+    "keywords": "Full Stack Developer, Laravel, React, Vue, Node.js, AdonisJS, Thương mại điện tử, AI Engineering, OpenAI, Việt Nam, Hà Nội, Hải Phòng"
   },
   "nav": {
     "home": "Trang chủ",
@@ -21,7 +21,7 @@
       { "text": "Chuyên Nghiệp", "emphasis": true },
       { "text": "Mở Rộng.", "emphasis": false }
     ],
-    "subheadline": "Lập trình viên Full Stack đa năng với hơn 6 năm kinh nghiệm triển khai ứng dụng web production — từ nền tảng thương mại điện tử, SaaS đến hệ thống tổng đài doanh nghiệp và ứng dụng AI.",
+    "subheadline": "Lập trình viên Full Stack đa năng với hơn 6 năm kinh nghiệm triển khai ứng dụng web production — từ nền tảng thương mại điện tử, SaaS...",
     "metrics": {
       "experience": { "value": "6+", "label": "Năm Kinh Nghiệm" },
       "projects": { "value": "10", "label": "Dự Án Hoàn Thành" },
@@ -246,7 +246,7 @@
   },
   "projectsPage": {
     "title": "Tất Cả Dự Án",
-    "description": "10 hệ thống production trong thương mại điện tử, SaaS, quảng cáo, tổng đài doanh nghiệp, học ngôn ngữ, phong thủy và nền tảng AI."
+    "description": "10 hệ thống production trong đó có thương mại điện tử, SaaS, quảng cáo, tổng đài doanh nghiệp, quảng cáo, phong thủy..."
   },
   "experience": {
     "headline": "Kinh Nghiệm Làm Việc",
@@ -394,5 +394,14 @@
     "en": "English",
     "vi": "Tiếng Việt",
     "switch": "Ngôn ngữ"
+  },
+  "resume": {
+    "title": "Tải CV",
+    "subtitle": "Chọn phiên bản ngôn ngữ bạn muốn",
+    "english": "English",
+    "vietnamese": "Tiếng Việt",
+    "hint": "Mở tab mới · In hoặc lưu PDF",
+    "open": "Mở",
+    "close": "Đóng"
   }
 }

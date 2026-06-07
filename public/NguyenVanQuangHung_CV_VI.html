@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nguyễn Văn Quang Hưng – Lập Trình Viên Full Stack</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink:        #0E1117;
+  --ink-mid:    #1C2333;
+  --sidebar-bg: #111827;
+  --main-bg:    #FAFBFC;
+  --accent:     #00C2FF;
+  --accent-dim: #0088BB;
+  --green:      #00D68F;
+  --amber:      #FFBF00;
+  --red:        #FF5E5B;
+  --text:       #1E2638;
+  --muted:      #5A6478;
+  --border:     #E2E8F0;
+  --tag-blue-bg:#EBF8FF;
+  --tag-blue-c: #0077AA;
+  --tag-green-bg:#EDFAF4;
+  --tag-green-c: #007A50;
+  --tag-amber-bg:#FFFBEB;
+  --tag-amber-c: #9A6B00;
+  --code-font:  'IBM Plex Mono', monospace;
+  --body-font:  'IBM Plex Sans', sans-serif;
+}
+
+/* ─────────────── PRINT ─────────────── */
+@media print {
+  html, body { background: white !important; padding: 0 !important; margin: 0 !important; }
+  .no-print { display: none !important; }
+  .wrap { box-shadow: none !important; margin: 0 !important; border-radius: 0 !important; max-width: 100% !important; width: 100% !important; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+  /* Prevent text from being cut across page breaks */
+  .exp     { break-inside: avoid; page-break-inside: avoid; }
+  .proj-card { break-inside: avoid; page-break-inside: avoid; }
+  .ai-box  { break-inside: avoid; page-break-inside: avoid; }
+  .sec     { break-inside: avoid; page-break-inside: avoid; }
+  .buls li { break-inside: avoid; page-break-inside: avoid; }
+  .proj-grid { break-inside: avoid; page-break-inside: avoid; }
+  .hdr     { break-inside: avoid; page-break-inside: avoid; }
+  .sec-title { break-after: avoid; page-break-after: avoid; }
+  .exp-hdr   { break-after: avoid; page-break-after: avoid; }
+  .proj-name { break-after: avoid; page-break-after: avoid; }
+
+  /* Sidebar prints as dark block */
+  .sidebar { background: var(--sidebar-bg) !important; }
+  .proj-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ─────────────── BASE ─────────────── */
+body {
+  font-family: var(--body-font);
+  background: #CBD5E1;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0,0,0,.04) 39px, rgba(0,0,0,.04) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0,0,0,.04) 39px, rgba(0,0,0,.04) 40px);
+  color: var(--text);
+  padding: 32px 16px 56px;
+  line-height: 1.6;
+}
+
+/* ─────────────── PRINT BUTTON ─────────────── */
+.no-print { text-align: center; margin-bottom: 18px; }
+.no-print button {
+  background: var(--ink);
+  color: #00C2FF;
+  border: 1px solid #00C2FF44;
+  padding: 10px 32px;
+  border-radius: 4px;
+  font-family: var(--code-font);
+  font-size: 12px;
+  letter-spacing: .5px;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.no-print button:hover { background: #00C2FF; color: var(--ink); }
+
+/* ─────────────── WRAPPER ─────────────── */
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  background: var(--main-bg);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,.22), 0 4px 12px rgba(0,0,0,.14);
+  border: 1px solid #B0BAC6;
+}
+
+/* ─────────────── HEADER ─────────────── */
+.hdr {
+  background: var(--ink);
+  padding: 36px 48px 28px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #1E3A50;
+}
+.hdr::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 23px, rgba(0,194,255,.025) 23px, rgba(0,194,255,.025) 24px),
+    repeating-linear-gradient(90deg, transparent, transparent 23px, rgba(0,194,255,.025) 23px, rgba(0,194,255,.025) 24px);
+  pointer-events: none;
+}
+.hdr-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px; position: relative; z-index: 1; }
+.hdr-eyebrow {
+  font-family: var(--code-font);
+  font-size: 10px; color: #00C2FF88;
+  letter-spacing: 2px; margin-bottom: 8px;
+}
+.hdr-name {
+  font-family: var(--body-font);
+  font-size: 38px; font-weight: 700;
+  color: #F0F6FF;
+  letter-spacing: -1px; line-height: 1;
+  margin-bottom: 6px;
+}
+.hdr-name span { color: var(--accent); }
+.hdr-title {
+  font-family: var(--code-font);
+  font-size: 12px; font-weight: 400;
+  letter-spacing: 1.5px;
+  color: #5B8FAE; margin-bottom: 22px;
+}
+.hdr-title::before { content: '> '; color: var(--green); }
+.hdr-contacts { display: flex; flex-wrap: wrap; gap: 18px; }
+.hdr-c {
+  display: flex; align-items: center; gap: 7px;
+  color: #7A9BB8; font-size: 12px; font-family: var(--code-font);
+}
+.hdr-c svg { width: 13px; height: 13px; fill: #00C2FF66; flex-shrink: 0; }
+.hdr-c:hover { color: var(--accent); }
+.hdr-stats {
+  display: flex; flex-direction: column; gap: 8px; align-items: flex-end;
+}
+.stat-block {
+  background: rgba(0,194,255,.06);
+  border: 1px solid rgba(0,194,255,.15);
+  border-radius: 4px;
+  padding: 10px 16px;
+  text-align: right;
+  min-width: 110px;
+}
+.stat-num { font-family: var(--code-font); font-size: 26px; font-weight: 600; color: var(--accent); line-height: 1; }
+.stat-lbl { font-size: 9px; color: #5B8FAE; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 3px; font-family: var(--code-font); }
+
+/* ─────────────── LAYOUT ─────────────── */
+.body { display: grid; grid-template-columns: 230px 1fr; }
+
+/* ─────────────── SIDEBAR ─────────────── */
+.sidebar {
+  background: var(--sidebar-bg);
+  padding: 28px 18px;
+  border-right: 1px solid #0F1825;
+}
+.sec { margin-bottom: 22px; }
+.sec-title {
+  font-family: var(--code-font);
+  font-size: 8.5px; font-weight: 500;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: #00C2FF88;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #1E3A50;
+  margin-bottom: 10px;
+}
+.sidebar .sec-title { color: #00C2FF66; border-bottom-color: #1C2E40; }
+
+/* Tags */
+.tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.tag {
+  background: #1C2A3A;
+  color: #7ABED8;
+  border: 1px solid #253A50;
+  font-size: 10px; font-weight: 500;
+  padding: 3px 9px; border-radius: 3px;
+  white-space: nowrap;
+  font-family: var(--code-font);
+  letter-spacing: .2px;
+}
+.tag.ai  { background: #1C1A0E; color: #C8A840; border-color: #3A3010; }
+.tag.ops { background: #0E1C14; color: #40C870; border-color: #103020; }
+
+/* Education */
+.edu-deg { font-size: 11px; font-weight: 600; color: #C8DCF0; margin-bottom: 3px; font-family: var(--body-font); }
+.edu-sch { font-size: 10px; color: #4A6A88; line-height: 1.5; font-family: var(--body-font); }
+.edu-yr  {
+  display: inline-block; margin-top: 7px;
+  font-family: var(--code-font); font-size: 10px; font-weight: 500;
+  color: var(--green); background: rgba(0,214,143,.1);
+  border: 1px solid rgba(0,214,143,.25);
+  padding: 2px 10px; border-radius: 3px;
+  letter-spacing: .5px;
+}
+
+/* ─────────────── MAIN ─────────────── */
+.main { padding: 28px 36px; }
+.main .sec-title {
+  color: var(--accent-dim);
+  border-bottom: 2px solid #E4F4FD;
+  margin-bottom: 14px;
+  font-family: var(--code-font);
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  padding-bottom: 6px;
+}
+
+/* ─────────────── SUMMARY ─────────────── */
+.summary {
+  font-size: 12.5px; color: var(--muted);
+  line-height: 1.8; margin-bottom: 2px;
+  border-left: 3px solid var(--accent);
+  padding-left: 14px;
+  background: linear-gradient(90deg, #F0FAFF 0%, transparent 100%);
+  padding-top: 8px; padding-bottom: 8px;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ─────────────── EXPERIENCE ─────────────── */
+.exp {
+  margin-bottom: 18px;
+  padding: 14px 16px 14px 18px;
+  border-left: 3px solid #BFE0F0;
+  background: #FAFBFC;
+  border-radius: 0 6px 6px 0;
+  position: relative;
+}
+.exp::before {
+  content: '';
+  position: absolute; left: -5px; top: 16px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent-dim);
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px var(--accent-dim);
+}
+.exp-hdr { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 2px; }
+.exp-role { font-size: 13px; font-weight: 700; color: var(--ink-mid); }
+.exp-per {
+  font-size: 9.5px; font-weight: 500;
+  font-family: var(--code-font);
+  background: var(--ink);
+  color: var(--green);
+  padding: 2px 10px; border-radius: 3px;
+  white-space: nowrap; flex-shrink: 0;
+  letter-spacing: .3px;
+}
+.exp-co  { font-size: 10.5px; font-weight: 600; color: var(--accent-dim); margin-bottom: 8px; font-family: var(--code-font); }
+
+/* Bullets */
+.buls { list-style: none; }
+.buls li {
+  font-size: 11.5px; color: #3C5060;
+  padding: 2.5px 0 2.5px 16px;
+  position: relative; line-height: 1.65;
+}
+.buls li::before {
+  content: '▸';
+  position: absolute; left: 0;
+  color: var(--amber); font-size: 11px; line-height: 1.65;
+}
+
+/* ─────────────── AI BOX ─────────────── */
+.ai-box {
+  background: #FFFCF0;
+  border: 1px solid #E8D060;
+  border-left: 4px solid var(--amber);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 18px;
+}
+.ai-box-title {
+  font-size: 11px; font-weight: 700;
+  color: #7A5A00; margin-bottom: 9px;
+  font-family: var(--code-font);
+  letter-spacing: .3px;
+}
+.ai-box-title::before { content: '★ '; }
+.ai-box .buls li { font-size: 11px; color: #5A4000; }
+.ai-box .buls li::before { color: var(--amber); }
+
+/* ─────────────── PROJECTS ─────────────── */
+.proj-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.proj-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 13px 15px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .2s;
+}
+.proj-card:hover { border-color: var(--accent); }
+.proj-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--green));
+}
+.proj-card.highlight::before { background: linear-gradient(90deg, var(--amber), #E8A020); }
+.proj-ai-badge {
+  display: inline-flex; align-items: center;
+  background: #FFFBEB; border: 1px solid #E8D060;
+  color: #8A6000; font-size: 9px; font-weight: 500;
+  font-family: var(--code-font);
+  padding: 1px 8px; border-radius: 3px; margin-bottom: 5px;
+}
+.proj-name { font-size: 12px; font-weight: 700; color: var(--ink-mid); margin-bottom: 2px; }
+.proj-period { font-size: 9.5px; color: var(--muted); margin-bottom: 4px; font-family: var(--code-font); }
+.proj-stack {
+  font-size: 9.5px; color: var(--accent-dim);
+  font-family: var(--code-font);
+  margin-bottom: 6px; line-height: 1.5;
+}
+.proj-desc { font-size: 11px; color: #3C5060; line-height: 1.65; }
+.proj-link {
+  display: inline-block; margin-top: 5px;
+  font-size: 10px; font-family: var(--code-font);
+  color: var(--accent-dim); font-weight: 500;
+  text-decoration: none; letter-spacing: .2px;
+}
+.proj-link:hover { color: var(--accent); }
+
+.hdr-avatar {
+  width: 90px; height: 90px;
+  border-radius: 6px;
+  border: 2px solid rgba(0,194,255,.3);
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(0,194,255,.08), 0 8px 24px rgba(0,0,0,.4);
+}
+.hdr-avatar {
+  width: 88px; height: 88px;
+  border-radius: 6px;
+  border: 2px solid rgba(0,194,255,.35);
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(0,194,255,.08), 0 8px 24px rgba(0,0,0,.5);
+}
+.hdr-left-inner { display: flex; align-items: flex-start; gap: 20px; }
+
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <button onclick="window.print()">⌘ In / Lưu PDF</button>
+</div>
+
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="hdr-top">
+      <div class="hdr-left">
+        <div class="hdr-left-inner">
+          <img class="hdr-avatar" src="/images/avatar.png" alt="Nguyễn Văn Quang Hưng">
+          <div class="hdr-info">
+            <div class="hdr-name">Quang <span>Hưng</span></div>
+            <div class="hdr-title">Lập Trình Viên Full Stack &amp; Kỹ Sư AI-Native</div>
+            <div class="hdr-contacts">
+              <div class="hdr-c">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.6.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.47 11.47 0 00.57 3.6 1 1 0 01-.25 1.01z"/></svg>
+                0788 337 682
+              </div>
+              <div class="hdr-c">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                quanghung121097@gmail.com
+              </div>
+              <div class="hdr-c">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 119.5 9 2.5 2.5 0 0112 11.5z"/></svg>
+                Hà Nội, Việt Nam
+              </div>
+              <div class="hdr-c">
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 14.93V15a1 1 0 00-2 0v1.93A8.001 8.001 0 014.07 11H6a1 1 0 000-2H4.07A8.001 8.001 0 0111 4.07V6a1 1 0 002 0V4.07A8.001 8.001 0 0119.93 11H18a1 1 0 000 2h1.93A8.001 8.001 0 0113 16.93z"/></svg>
+                Ngày sinh: 12/10/1997 &nbsp;|&nbsp; Nam
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hdr-stats">
+        <div class="stat-block">
+          <div class="stat-num">6+</div>
+          <div class="stat-lbl">Năm KN.</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">10</div>
+          <div class="stat-lbl">Dự Án</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="sec">
+        <div class="sec-title">Backend</div>
+        <div class="tags">
+          <span class="tag">PHP</span>
+          <span class="tag">Laravel</span>
+          <span class="tag">CakePHP</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">AdonisJS v6</span>
+          <span class="tag">Flutter</span>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">Frontend</div>
+        <div class="tags">
+          <span class="tag">VueJS</span>
+          <span class="tag">ReactJS</span>
+          <span class="tag">jQuery</span>
+          <span class="tag">HTML / CSS</span>
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">Bootstrap</span>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">Cơ Sở Dữ Liệu</div>
+        <div class="tags">
+          <span class="tag">MySQL</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">MongoDB</span>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">AI &amp; Công Cụ Dev</div>
+        <div class="tags">
+          <span class="tag ai">OpenAI API</span>
+          <span class="tag ai">Claude Code</span>
+          <span class="tag ai">GitHub Copilot</span>
+          <span class="tag ai">Cursor IDE</span>
+          <span class="tag ai">Prompt Engineering</span>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">DevOps &amp; Cloud</div>
+        <div class="tags">
+          <span class="tag ops">Git</span>
+          <span class="tag ops">Docker</span>
+          <span class="tag ops">Linux / Ubuntu</span>
+          <span class="tag ops">AWS S3</span>
+          <span class="tag ops">Firebase</span>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">API Bên Thứ Ba</div>
+        <div class="tags">
+          <span class="tag">Stripe</span>
+          <span class="tag">9Pay</span>
+          <span class="tag">ACB API</span>
+          <span class="tag">PortOne</span>
+          <span class="tag">GiaoHangNhanh</span>
+          <span class="tag">Vietmap</span>
+          <span class="tag">FB Marketing</span>
+          <span class="tag">Google Ads</span>
+          <span class="tag">Shopee API</span>
+          <span class="tag">Socket.IO</span>
+          <span class="tag">Momo</span>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">Học Vấn</div>
+        <div class="edu-deg">Kỹ Sư An Toàn Thông Tin</div>
+        <div class="edu-sch">Học viện Kỹ thuật Mật mã (KMA), Việt Nam</div>
+        <div class="edu-yr">2016 – 2021</div>
+      </div>
+
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <!-- SUMMARY -->
+      <div class="sec">
+        <div class="sec-title">Tóm Tắt Chuyên Môn</div>
+        <p class="summary">
+          Lập trình viên Full Stack đa năng với <strong>hơn 6 năm kinh nghiệm thực chiến</strong>, đã triển khai <strong>10 hệ thống production</strong> trong đó có thương mại điện tử, SaaS, tổng đài doanh nghiệp, quảng cáo, edtech, lifestyle. Thành thạo <strong>PHP (Laravel, CakePHP)</strong>, <strong>JavaScript (VueJS, ReactJS)</strong> và <strong>Node.js (AdonisJS)</strong>, có kinh nghiệm sâu tích hợp API bên thứ ba, cổng thanh toán và hệ thống realtime. Áp dụng quy trình phát triển hỗ trợ AI với <strong>OpenAI API</strong>, <strong>Claude Code</strong>, <strong>Cursor IDE</strong> và <strong>GitHub Copilot</strong>. Có khả năng triển khai hiệu quả trong cả môi trường sản phẩm và outsourcing tại Việt Nam và Nhật Bản.
+        </p>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="sec">
+        <div class="sec-title">Kinh Nghiệm Làm Việc</div>
+
+        <div class="exp">
+          <div class="exp-hdr">
+            <div class="exp-role">Lập Trình Viên Full Stack — Remote / Freelancer</div>
+            <span class="exp-per">Th11 2024 – Hiện tại</span>
+          </div>
+          <div class="exp-co">Tự doanh | Việt Nam &amp; Nhật Bản</div>
+          <ul class="buls">
+            <li>Xây dựng <strong>Vanda (Vanecom)</strong>, nền tảng thương mại điện tử AI tích hợp OpenAI API cho gợi ý sản phẩm và hỗ trợ khách hàng tự động.</li>
+            <li>Phát triển <strong>HairNow</strong>, nền tảng tìm stylist realtime với chat Socket.IO, định vị và tích hợp thanh toán — phát hành trên <strong>App Store</strong>.</li>
+            <li>Xây dựng backend <strong>Vương Kim Bảo</strong> cho app Flutter — tra cứu phong thủy, luận giải ngày sinh và gợi ý vật phẩm theo bản mệnh — có mặt trên <strong>App Store</strong>.</li>
+            <li>Phát triển <strong>Jindo App</strong>, ứng dụng học tiếng Hàn với bài học tương tác, Firebase analytics và đăng ký in-app qua 9Pay.</li>
+            <li>Bảo trì và tối ưu hệ thống backend Laravel cho khách hàng doanh nghiệp Nhật Bản; quản lý migration schema, tối ưu query và triển khai zero-downtime.</li>
+            <li>Sử dụng <strong>Claude Code, Cursor IDE và GitHub Copilot</strong> để tăng tốc phát triển trên tất cả dự án đang hoạt động.</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-hdr">
+            <div class="exp-role">Lập Trình Viên Full Stack</div>
+            <span class="exp-per">Th11 2023 – Th11 2024</span>
+          </div>
+          <div class="exp-co">Coolmate | Việt Nam</div>
+          <ul class="buls">
+            <li>Phát triển và duy trì <strong>Coolmate.me</strong>, nền tảng thương mại điện tử thời trang nam hàng đầu Việt Nam xử lý giao dịch khối lượng lớn hàng ngày.</li>
+            <li>Xây dựng backend Laravel cho quản lý sản phẩm, đơn hàng, thanh toán online, đồng bộ tồn kho và trả hàng.</li>
+            <li>Phát triển giao diện frontend với ReactJS, VueJS và HTML/CSS/JS.</li>
+            <li>Tích hợp <strong>Shopee API</strong> cho đồng bộ sản phẩm đa kênh và <strong>PortOne</strong> cho xử lý thanh toán đa phương thức an toàn.</li>
+            <li>Phối hợp với team để đảm bảo trải nghiệm người dùng mượt mà.</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-hdr">
+            <div class="exp-role">Lập Trình Viên Full Stack</div>
+            <span class="exp-per">Th12 2021 – Th11 2023</span>
+          </div>
+          <div class="exp-co">CO-WELL Asia | Nhật Bản (Remote)</div>
+          <ul class="buls">
+            <li>Đóng góp nhiều dự án outsourcing cho khách hàng Nhật Bản trong quảng cáo, tổng đài doanh nghiệp và quản lý sự kiện.</li>
+            <li>Xây dựng <strong>Ad-Start</strong> tích hợp Facebook Marketing API và Google Ads API cho tạo chiến dịch, theo dõi và báo cáo tự động.</li>
+            <li>Phát triển <strong>TobilaPhone Biz</strong> — hệ thống lọc cuộc gọi doanh nghiệp với CakePHP, quản lý blacklist và giám sát lưu lượng realtime.</li>
+            <li>Xây dựng <strong>Onsight-php</strong> — nền tảng lên lịch sự kiện realtime với Laravel, ReactJS và kiến trúc dữ liệu PostgreSQL.</li>
+            <li>Quản lý tích hợp <strong>AWS S3</strong> cho lưu trữ media có thể mở rộng trên nhiều dự án.</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-hdr">
+            <div class="exp-role">Lập Trình Viên Full Stack</div>
+            <span class="exp-per">Th12 2019 – Th12 2021</span>
+          </div>
+          <div class="exp-co">VCCorp | Việt Nam</div>
+          <ul class="buls">
+            <li>Đóng góp <strong>Bizfly Email</strong>, hệ thống gửi email hàng loạt cấp doanh nghiệp với trigger theo kịch bản, cá nhân hóa nội dung và cảnh báo rủi ro spam.</li>
+            <li>Thiết kế và tối ưu schema MongoDB cho log email khối lượng lớn, theo dõi hoạt động và cấu hình chiến dịch.</li>
+            <li>Triển khai trigger email theo kịch bản với cá nhân hóa nội dung động cho chiến dịch doanh nghiệp quy mô lớn.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- AI EXPERIENCE -->
+      <div class="sec">
+        <div class="sec-title">Kinh Nghiệm AI &amp; Công Cụ Dev</div>
+        <div class="ai-box">
+          <div class="ai-box-title">Tích Hợp AI Thực Tiễn &amp; Phát Triển Hỗ Trợ AI</div>
+          <ul class="buls">
+            <li>Tích hợp <strong>OpenAI API (PHP)</strong> vào <strong>Vanda (Vanecom)</strong> cho gợi ý sản phẩm cá nhân hóa và hỗ trợ khách hàng tự động — giảm tải hỗ trợ thủ công.</li>
+            <li>Sử dụng <strong>Claude Code</strong> cho workflow agentic qua terminal: viết tính năng, review pull request và refactor hệ thống legacy phức tạp.</li>
+            <li>Dùng hàng ngày <strong>Cursor IDE</strong> và <strong>GitHub Copilot</strong> cho code completion AI, gợi ý realtime và refactor đa file trên tất cả dự án.</li>
+            <li>Áp dụng kỹ thuật <strong>prompt engineering</strong> có cấu trúc để tạo boilerplate, viết test tự động và sản xuất tài liệu kỹ thuật nhanh hơn.</li>
+            <li>Liên tục đánh giá và áp dụng công cụ AI mới để duy trì lợi thế phát triển.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="sec">
+        <div class="sec-title">Danh Mục Dự Án — 10 Sản Phẩm Production</div>
+        <div class="proj-grid">
+
+          <div class="proj-card highlight">
+            <div class="proj-ai-badge">★ App Store</div>
+            <div class="proj-name">Vương Kim Bảo</div>
+            <div class="proj-period">Th12 2025 – Hiện tại | Team: 3 | Backend Developer</div>
+            <div class="proj-stack">Laravel · Flutter · MySQL</div>
+            <div class="proj-desc">Nền tảng tra cứu phong thủy toàn diện — khám phá vận mệnh, luận giải theo ngày sinh và tìm vật phẩm phong thủy phù hợp bản mệnh. Backend Laravel phục vụ ứng dụng Flutter — có mặt trên <strong>App Store</strong>.</div>
+            <a class="proj-link" href="https://apps.apple.com/vn/app/v%C6%B0%C6%A1ng-kim-b%E1%BA%A3o/id6754622962?l=vi" target="_blank">App Store ↗</a>
+          </div>
+
+          <div class="proj-card highlight">
+            <div class="proj-ai-badge">★ App Store</div>
+            <div class="proj-name">HairNow</div>
+            <div class="proj-period">Th5 – Th11 2025 | Team: 5 | Remote / Freelance</div>
+            <div class="proj-stack">Laravel · AdonisJS v6 · Socket.IO · Firebase · Vietmap · 9Pay · Momo</div>
+            <div class="proj-desc">Nền tảng tìm stylist realtime — kết nối khách hàng với chuyên gia làm tóc và làm đẹp đang sẵn sàng gần bạn, không cần đặt lịch trước. API AdonisJS hiệu năng cao, chat realtime qua <strong>Socket.IO</strong>, tìm kiếm theo vị trí Vietmap và tích hợp thanh toán — đã phát hành trên <strong>App Store</strong>.</div>
+            <a class="proj-link" href="https://apps.apple.com/us/app/hairnow-find-a-stylist-now/id6761238190" target="_blank">App Store ↗</a>
+          </div>
+
+          <div class="proj-card highlight">
+            <!-- <div class="proj-ai-badge">★ Tích Hợp AI</div> -->
+            <div class="proj-name">Vanda (Vanecom)</div>
+            <div class="proj-period">Th11 2024 – Th5 2025 | Team: 5 | Remote / Freelance</div>
+            <div class="proj-stack">Laravel · jQuery · OpenAI API · Firebase · 9Pay · ACB API · GiaoHangNhanh</div>
+            <div class="proj-desc">Nền tảng thương mại điện tử Việt Nam với giao diện web và mobile. Tích hợp <strong>OpenAI API</strong> cho gợi ý sản phẩm và hỗ trợ khách hàng tự động. Theo dõi giao hàng realtime qua GiaoHangNhanh, Firebase thông báo và chat trực tiếp.</div>
+            <a class="proj-link" href="https://vanecom.vn/" target="_blank">vanecom.vn ↗</a>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-name">Jindo App</div>
+            <div class="proj-period">Th1 2025 – Th4 2025 | Team: 5 | Remote / Freelance</div>
+            <div class="proj-stack">Laravel · jQuery · Firebase · 9Pay</div>
+            <div class="proj-desc">Ứng dụng học tiếng Hàn cho người Việt với bài học tương tác, quiz và theo dõi tiến độ. Firebase xác thực, thông báo &amp; phân tích. Mua in-app và đăng ký qua 9Pay.</div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-name">Coolmate.me</div>
+            <div class="proj-period">Th11 2023 – Th11 2024 | Team: 9</div>
+            <div class="proj-stack">Laravel · ReactJS · VueJS · HTML/CSS/JS · PortOne · Shopee API</div>
+            <div class="proj-desc">Nền tảng thương mại điện tử thời trang nam hàng đầu Việt Nam xử lý giao dịch khối lượng lớn. Dual frontend (ReactJS storefront, VueJS admin), backend Laravel mạnh, đồng bộ Shopee và thanh toán PortOne.</div>
+            <a class="proj-link" href="https://www.coolmate.me/" target="_blank">coolmate.me ↗</a>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-name">Ad-Start</div>
+            <div class="proj-period">Th12 2021 – Th5 2023 | Team: 5</div>
+            <div class="proj-stack">Laravel · VueJS · MySQL · AWS S3 · Facebook Marketing API · Google Ads API</div>
+            <div class="proj-desc">Nền tảng quản lý quảng cáo tập trung cho chiến dịch Facebook và Google. Tạo quảng cáo tự động, dashboard hiệu suất realtime, quản lý đối tượng và ngân sách. Media lưu trữ qua AWS S3.</div>
+            <a class="proj-link" href="https://jp.ad-start.ai/" target="_blank">jp.ad-start.ai ↗</a>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-name">Onsight-php</div>
+            <div class="proj-period">Th5 2023 – Th11 2023 | Team: 10</div>
+            <div class="proj-stack">Laravel · ReactJS · PostgreSQL</div>
+            <div class="proj-desc">Nền tảng quản lý sự kiện để tạo, lên lịch và theo dõi sự kiện với cập nhật realtime và tích hợp lịch. Giao diện lịch tương tác ReactJS và push notification.</div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-name">TobilaPhone Biz</div>
+            <div class="proj-period">Th8 2022 – Th11 2023 | Team: 10</div>
+            <div class="proj-stack">CakePHP · Laravel · HTML/CSS/JS · MySQL</div>
+            <div class="proj-desc">Giải pháp tổng đài doanh nghiệp lọc, chặn và quản lý cuộc gọi spam. Dashboard tập trung cấu hình quy tắc, blacklist, giám sát lưu lượng realtime và bảo vệ chống gian lận.</div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-name">Bizfly Email</div>
+            <div class="proj-period">Th10 2020 – Th11 2021 | Team: 4</div>
+            <div class="proj-stack">Laravel · jQuery · MongoDB</div>
+            <div class="proj-desc">Hệ thống gửi email hàng loạt doanh nghiệp với trigger theo kịch bản, cá nhân hóa nội dung động và cảnh báo rủi ro spam. MongoDB tối ưu cho log email khối lượng lớn.</div>
+            <a class="proj-link" href="https://bizfly.vn/" target="_blank">bizfly.vn ↗</a>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-name">Remote-Offer</div>
+            <div class="proj-period">Th12 2019 – Th9 2020 | Team: 4</div>
+            <div class="proj-stack">Laravel · jQuery · MySQL · Stripe</div>
+            <div class="proj-desc">Nền tảng tuyển dụng cho công ty đăng tin tuyển dụng, quản lý ứng viên và blog công ty. Tích hợp Stripe cho đăng tin trả phí và đăng ký. Luồng tìm kiếm và ứng tuyển hiệu quả.</div>
+            <a class="proj-link" href="https://remote-jobs.jp/" target="_blank">remote-jobs.jp ↗</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

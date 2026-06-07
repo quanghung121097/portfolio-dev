@@ -2,9 +2,9 @@
 
 import { useTranslations } from "next-intl";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Download } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/config/site";
+import { ResumeDownloadButton } from "@/components/resume/ResumeDownloadButton";
 import { HeroPortrait } from "@/components/sections/hero-portrait";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -123,14 +123,10 @@ export function HeroSection() {
               >
                 {t("cta.viewProjects")} ↗
               </Link>
-              <a
-                href={siteConfig.resumePath}
-                download={siteConfig.resumeFileName}
+              <ResumeDownloadButton
+                label={t("cta.downloadResume")}
                 className="flex items-center gap-2 text-xs tracking-[0.12em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
-              >
-                <Download className="size-3" />
-                {t("cta.downloadResume")}
-              </a>
+              />
             </motion.div>
 
             {/* Metrics — compact horizontal strip */}

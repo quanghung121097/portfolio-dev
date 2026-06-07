@@ -10,8 +10,16 @@ export const siteConfig = {
     github: "https://github.com/quanghung121097",
     location: "Ha Noi, Vietnam",
   },
-  resumePath: "/resume.pdf",
-  resumeFileName: "Hung-Nguyen-Full-Stack-Developer.pdf",
+  resumes: {
+    en: {
+      path: "/NguyenVanQuangHung_CV.html",
+      fileName: "Hung-Nguyen-CV-English.html",
+    },
+    vi: {
+      path: "/NguyenVanQuangHung_CV_VI.html",
+      fileName: "Hung-Nguyen-CV-Tieng-Viet.html",
+    },
+  },
 } as const;
 
 export type SiteConfig = typeof siteConfig;

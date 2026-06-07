@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
-import { Mail, Phone, Github, MapPin, ArrowUpRight, Download } from "lucide-react";
+import { Mail, Phone, Github, MapPin, ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { ResumeDownloadButton } from "@/components/resume/ResumeDownloadButton";
 import { FadeIn, ScrollLine } from "@/components/motion";
 
 const contactItems = [
@@ -103,14 +104,10 @@ export async function ContactSection() {
                 {t("cta")}
                 <ArrowUpRight className="size-3" />
               </a>
-              <a
-                href={siteConfig.resumePath}
-                download={siteConfig.resumeFileName}
+              <ResumeDownloadButton
+                label={t("downloadResume")}
                 className="flex items-center gap-2 text-xs tracking-[0.12em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
-              >
-                <Download className="size-3" />
-                {t("downloadResume")}
-              </a>
+              />
             </div>
           </FadeIn>
         </div>

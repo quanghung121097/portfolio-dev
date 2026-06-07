@@ -394,5 +394,14 @@
     "en": "English",
     "vi": "Tiếng Việt",
     "switch": "Language"
+  },
+  "resume": {
+    "title": "Download CV",
+    "subtitle": "Choose your preferred language version",
+    "english": "English",
+    "vietnamese": "Tiếng Việt",
+    "hint": "Opens in a new tab · Print or save as PDF",
+    "open": "Open",
+    "close": "Close"
   }
 }
