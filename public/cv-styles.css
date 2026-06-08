@@ -66,7 +66,7 @@
 
   .masthead { padding: 16px 20px 14px !important; }
   .masthead__inner { gap: 16px !important; }
-  .avatar { width: 64px !important; height: 64px !important; }
+  .avatar { width: 108px !important; height: 138px !important; }
   .name { font-size: 1.55rem !important; margin-bottom: 4px !important; }
   .eyebrow { margin-bottom: 6px !important; }
   .stat-num { font-size: 1.4rem !important; }
@@ -207,12 +207,13 @@ body {
 }
 
 .avatar {
-  width: 84px;
-  height: 84px;
-  object-fit: cover;
-  object-position: center top;
+  width: 132px;
+  height: 168px;
+  object-fit: contain;
+  object-position: center center;
   flex-shrink: 0;
   border: 1px solid var(--rule);
+  background: var(--paper-rail);
   filter: grayscale(8%);
 }
 
@@ -664,6 +665,6 @@ body {
 
 @media screen and (max-width: 480px) {
   .masthead__identity { flex-direction: row; gap: 16px; }
-  .avatar { width: 72px; height: 72px; }
+  .avatar { width: 120px; height: 154px; }
   .name { font-size: 1.75rem; }
 }
