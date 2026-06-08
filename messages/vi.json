@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Quang Hưng — Lập Trình Viên Full Stack",
-    "description": "Lập trình viên Full Stack đa năng với hơn 6 năm kinh nghiệm triển khai ứng dụng web production trong đó có thương mại điện tử, SaaS, quảng cáo...",
+    "description": "Lập trình viên Full Stack với hơn 6 năm kinh nghiệm triển khai ứng dụng web production trong đó có thương mại điện tử, SaaS, quảng cáo...",
     "keywords": "Full Stack Developer, Laravel, React, Vue, Node.js, AdonisJS, Thương mại điện tử, AI Engineering, OpenAI, Việt Nam, Hà Nội, Hải Phòng"
   },
   "nav": {
@@ -21,7 +21,7 @@
       { "text": "Chuyên Nghiệp", "emphasis": true },
       { "text": "Mở Rộng.", "emphasis": false }
     ],
-    "subheadline": "Lập trình viên Full Stack đa năng với hơn 6 năm kinh nghiệm triển khai ứng dụng web production — từ nền tảng thương mại điện tử, SaaS...",
+    "subheadline": "Lập trình viên Full Stack với hơn 6 năm kinh nghiệm triển khai ứng dụng web production — từ nền tảng thương mại điện tử, SaaS...",
     "metrics": {
       "experience": { "value": "6+", "label": "Năm Kinh Nghiệm" },
       "projects": { "value": "10", "label": "Dự Án Hoàn Thành" },
