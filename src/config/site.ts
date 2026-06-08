@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Hung Nguyen",
+  name: "Nguyễn Văn Quang Hưng",
   url: "https://nguyenvanquanghung.dev",
   ogImage: "/og-image.svg",
   role: "Full Stack Developer",

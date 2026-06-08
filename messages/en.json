@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Hung Nguyen — Full Stack Developer",
-    "description": "Versatile Full Stack Developer with 6+ years of experience delivering production-grade web applications across e-commerce, SaaS, enterprise telephony, advertising technology, and AI-powered platforms.",
+    "description": "Versatile Full Stack Developer with over 6 years of hands-on experience, having deployed 10 production systems across e-commerce, SaaS, enterprise telephony, advertising, edtech, lifestyle, and AI-powered platforms.",
     "keywords": "Full Stack Developer, Laravel, React, Vue, Node.js, AdonisJS, E-commerce, AI Engineering, OpenAI, Vietnam, Hanoi"
   },
   "nav": {
@@ -21,7 +21,7 @@
       { "text": "Scalable", "emphasis": true },
       { "text": "Web Applications", "emphasis": false }
     ],
-    "subheadline": "Versatile Full Stack Developer with 6+ years of experience delivering production-grade web applications — from e-commerce platforms and SaaS tools to enterprise telephony systems and AI-powered applications.",
+    "subheadline": "Versatile Full Stack Developer with over 6 years of hands-on experience, having deployed 10 production systems — e-commerce, SaaS, enterprise telephony, advertising, edtech, and lifestyle.",
     "metrics": {
       "experience": { "value": "6+", "label": "Years Experience" },
       "projects": { "value": "10", "label": "Projects Shipped" },
@@ -71,7 +71,7 @@
       },
       "step5": {
         "title": "Remote / Freelance Developer",
-        "description": "Transitioned to remote freelance work — shipping Vanda (Vanecom), Vương Kim Bảo, Jindo App, and HairNow while maintaining and optimizing Laravel systems for Japanese enterprise clients."
+        "description": "Transitioned to remote freelance work for CIT Group (Vietnam) and JAVIS Co., Ltd. (Japan) — shipping Vanda, HairNow, Vương Kim Bảo, and Jindo App."
       }
     },
     "values": {
@@ -85,7 +85,7 @@
       },
       "shipping": {
         "title": "Shipping Real Products",
-        "description": "10 production systems shipped — from high-volume e-commerce to enterprise telephony and AI-powered platforms."
+        "description": "10 production systems shipped — from high-volume e-commerce, edtech, and lifestyle apps to enterprise telephony and AI-powered platforms."
       },
       "learning": {
         "title": "Continuous Learning",
@@ -101,14 +101,16 @@
       "frontend": "Frontend",
       "databases": "Databases",
       "devops": "DevOps & Cloud",
-      "ai": "AI & Dev Tools"
+      "ai": "AI & Dev Tools",
+      "apis": "Third-party APIs"
     },
     "skills": {
-      "backend": ["Laravel", "PHP", "CakePHP", "Node.js", "AdonisJS v6"],
-      "frontend": ["ReactJS", "VueJS", "jQuery", "HTML/CSS", "Tailwind CSS", "Bootstrap"],
+      "backend": ["PHP", "Laravel", "CakePHP", "Node.js", "AdonisJS v6"],
+      "frontend": ["VueJS", "ReactJS", "jQuery", "HTML/CSS", "Tailwind CSS", "Bootstrap"],
       "databases": ["MySQL", "PostgreSQL", "MongoDB"],
-      "devops": ["Git", "Docker", "Linux/Ubuntu", "AWS S3", "Firebase"],
-      "ai": ["OpenAI API", "Claude Code", "GitHub Copilot", "Cursor IDE", "Prompt Engineering"]
+      "devops": ["Git", "GitHub CI/CD", "Docker", "Linux/Ubuntu", "AWS S3", "AWS SES", "Firebase"],
+      "ai": ["OpenAI API", "Claude Code", "GitHub Copilot", "Cursor IDE", "Prompt Engineering"],
+      "apis": ["Stripe", "9Pay", "ACB API", "PortOne", "GiaoHangNhanh", "Vietmap", "FB Marketing", "Google Ads", "Shopee API", "Socket.IO", "Momo"]
     }
   },
   "projects": {
@@ -135,11 +137,11 @@
         "context": "Remote / Freelance",
         "period": "May – Nov 2025",
         "team": "Team: 5",
-        "description": "Real-time stylist discovery platform — connect clients with available hair and beauty professionals nearby without appointments. Live on the App Store.",
+        "description": "Real-time stylist discovery platform — connect clients with available hair and beauty professionals nearby without appointments. AdonisJS high-performance APIs, realtime chat via Socket.IO, Vietmap location search, and payment integrations — live on the App Store.",
         "highlights": [
-          "Real-time stylist availability & geolocation",
+          "AdonisJS high-performance APIs",
           "Realtime user–provider chat via Socket.IO",
-          "Traffic-aware arrival & payment integrations"
+          "Vietmap search & payment integrations"
         ],
         "tech": ["Laravel", "AdonisJS v6", "Socket.IO", "Firebase", "Vietmap", "9Pay", "Momo"]
       },
@@ -257,40 +259,42 @@
     },
     "items": {
       "freelance": {
-        "company": "Backend Developer — Remote / Freelancer",
-        "role": "Full Stack Developer",
+        "company": "Vietnam (CIT Group) & Japan (JAVIS Co., Ltd.)",
+        "role": "Full Stack Developer — Remote / Freelancer",
         "period": "Nov 2024 — Present",
         "responsibilities": [
-          "Built Vanda (Vanecom), an AI-powered Vietnamese e-commerce platform with OpenAI API integration for product recommendations and automated customer support",
-          "Developed Jindo App, a Korean language learning platform with interactive lessons, Firebase analytics, and 9Pay in-app subscriptions",
+          "Built Vanda, an AI-powered Vietnamese e-commerce platform with OpenAI API integration for product recommendations and automated customer support",
           "Developed HairNow, a real-time stylist discovery platform with Socket.IO live chat, geolocation, and payment integrations — live on the App Store",
-          "Built Vương Kim Bảo backend for the Flutter app — comprehensive feng shui lookup, birth date interpretation, and element-based product recommendations",
-          "Maintained and optimized Laravel-based backend systems for Japanese enterprise clients",
-          "Managed database schema migrations, query optimization, and zero-downtime deployment support"
+          "Built Vương Kim Bảo backend for the Flutter app — comprehensive feng shui lookup, birth date interpretation, and element-based product recommendations — live on the App Store",
+          "Developed Jindo App, a Korean language learning platform with interactive lessons, Firebase analytics, and 9Pay in-app subscriptions",
+          "Maintained and optimized Laravel-based backend systems for JAVIS Co., Ltd. (Japanese outsourcing company) — managed schema migrations, query optimization, and zero-downtime deployments",
+          "Utilized Claude Code, Cursor IDE, and GitHub Copilot to accelerate development across all active projects"
         ],
         "achievements": [
           "Shipped Vanda with OpenAI-driven recommendations, Firebase live chat, and GiaoHangNhanh delivery tracking",
-          "Delivered Jindo App with progress tracking, push notifications, and in-app purchase flows via 9Pay",
-          "Delivered Hairnow with AdonisJS high-performance APIs and realtime user–provider communication on iOS",
+          "Delivered HairNow with AdonisJS high-performance APIs and realtime user–provider communication on iOS",
           "Shipped Vương Kim Bảo with Laravel APIs powering destiny lookup and feng shui product matching",
-          "Diagnosed and resolved complex bugs, improving API response times across client systems"
+          "Delivered Jindo App with progress tracking, push notifications, and in-app purchase flows via 9Pay",
+          "Improved API response times and system stability for JAVIS Co., Ltd."
         ],
         "technologies": ["Laravel", "Flutter", "AdonisJS v6", "OpenAI API", "Socket.IO", "Firebase", "MySQL", "Docker"],
-        "impact": "Shipping AI-powered, edtech, lifestyle, and realtime mobile products remotely while maintaining enterprise Laravel systems for Japanese clients."
+        "impact": "Shipping AI-powered, edtech, lifestyle, and realtime mobile products for CIT Group while maintaining enterprise Laravel systems for JAVIS Co., Ltd."
       },
       "coolmate": {
         "company": "Coolmate",
         "role": "Full Stack Developer",
         "period": "Nov 2023 — Nov 2024",
         "responsibilities": [
-          "Developed and maintained Coolmate.me, a leading Vietnamese men's fashion e-commerce platform",
-          "Built robust Laravel backend for product management, order processing, inventory sync, and returns",
-          "Developed dynamic frontend interfaces using ReactJS, VueJS, and HTML/CSS/JS"
+          "Developed and maintained Coolmate.me, a leading Vietnamese men's fashion e-commerce platform handling high-volume daily transactions",
+          "Built Laravel backend for product management, order processing, online payments, inventory sync, and returns",
+          "Developed dynamic frontend interfaces using ReactJS, VueJS, and HTML/CSS/JS",
+          "Integrated Shopee API for cross-platform product synchronization and PortOne for secure, multi-method payment processing",
+          "Collaborated with the team to ensure a smooth user experience"
         ],
         "achievements": [
           "Integrated Shopee API for cross-platform product synchronization",
           "Integrated PortOne for secure, multi-method payment processing",
-          "Collaborated within a team to ensure high reliability at scale"
+          "Ensured smooth user experience on a high-volume transaction platform"
         ],
         "technologies": ["Laravel", "ReactJS", "VueJS", "MySQL", "Shopee API", "PortOne"],
         "impact": "Contributed to Vietnam's leading fashion e-commerce platform handling high-volume daily transactions."
@@ -308,7 +312,7 @@
         "achievements": [
           "Delivered Ad-Start for automated campaign creation, tracking, and reporting",
           "Built enterprise telephony solution with real-time call traffic monitoring",
-          "Managed AWS S3 integration for scalable media asset storage"
+          "Delivered Onsight-php with interactive ReactJS calendar and real-time event updates"
         ],
         "technologies": ["Laravel", "CakePHP", "VueJS", "ReactJS", "PostgreSQL", "MySQL", "AWS S3"],
         "impact": "Enabled reliable SaaS and enterprise solutions for Japanese market clients across multiple domains."

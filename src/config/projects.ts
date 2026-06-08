@@ -1,7 +1,7 @@
 export const PROJECT_KEYS = [
-  "vanecom",
-  "hairnow",
   "vuongkimbao",
+  "hairnow",
+  "vanecom",
   "coolmate",
   "jindo",
   "adstart",

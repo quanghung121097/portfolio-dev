@@ -51,7 +51,7 @@ export function Navbar() {
           href="/"
           className="font-mono text-xs tracking-[0.2em] uppercase text-foreground hover:text-muted-foreground transition-colors duration-300"
         >
-          {siteConfig.name.split(" ")[0]}
+          {siteConfig.name}
         </Link>
 
         {/* Desktop nav */}

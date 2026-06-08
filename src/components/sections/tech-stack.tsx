@@ -8,6 +8,7 @@ const categoryMeta = [
   { key: "databases", accent: "text-emerald-400" }, /* matrix green */
   { key: "devops",    accent: "text-amber-400" },   /* warm gold */
   { key: "ai",        accent: "text-accent" },      /* brand accent — most prominent */
+  { key: "apis",      accent: "text-sky-400" },
 ] as const;
 
 export async function TechStackSection() {

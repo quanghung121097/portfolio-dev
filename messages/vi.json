@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Quang Hưng — Lập Trình Viên Full Stack",
-    "description": "Lập trình viên Full Stack với hơn 6 năm kinh nghiệm triển khai ứng dụng web production trong đó có thương mại điện tử, SaaS, quảng cáo...",
+    "description": "Lập trình viên Full Stack với hơn 6 năm kinh nghiệm thực chiến, đã triển khai 10 hệ thống production trong thương mại điện tử, SaaS, tổng đài doanh nghiệp, quảng cáo, edtech và lifestyle.",
     "keywords": "Full Stack Developer, Laravel, React, Vue, Node.js, AdonisJS, Thương mại điện tử, AI Engineering, OpenAI, Việt Nam, Hà Nội, Hải Phòng"
   },
   "nav": {
@@ -21,7 +21,7 @@
       { "text": "Chuyên Nghiệp", "emphasis": true },
       { "text": "Mở Rộng.", "emphasis": false }
     ],
-    "subheadline": "Lập trình viên Full Stack với hơn 6 năm kinh nghiệm triển khai ứng dụng web production — từ nền tảng thương mại điện tử, SaaS...",
+    "subheadline": "Lập trình viên Full Stack với hơn 6 năm kinh nghiệm thực chiến, đã triển khai 10 hệ thống production — thương mại điện tử, SaaS, tổng đài doanh nghiệp, quảng cáo, edtech và lifestyle.",
     "metrics": {
       "experience": { "value": "6+", "label": "Năm Kinh Nghiệm" },
       "projects": { "value": "10", "label": "Dự Án Hoàn Thành" },
@@ -71,7 +71,7 @@
       },
       "step5": {
         "title": "Remote / Freelance Developer",
-        "description": "Chuyển sang làm việc freelance remote — triển khai Vanda (Vanecom), Vương Kim Bảo, Jindo App và Hairnow, đồng thời bảo trì và tối ưu hệ thống Laravel cho khách hàng doanh nghiệp Nhật Bản."
+        "description": "Chuyển sang làm việc freelance remote cho CIT Group (Việt Nam) và JAVIS Co., Ltd. (Nhật Bản) — triển khai Vanda, HairNow, Vương Kim Bảo và Jindo App."
       }
     },
     "values": {
@@ -85,7 +85,7 @@
       },
       "shipping": {
         "title": "Triển Khai Sản Phẩm Thực",
-        "description": "10 hệ thống production — từ thương mại điện tử khối lượng lớn đến tổng đài doanh nghiệp và nền tảng AI."
+        "description": "10 hệ thống production — từ thương mại điện tử, edtech, lifestyle đến tổng đài doanh nghiệp và nền tảng AI."
       },
       "learning": {
         "title": "Học Hỏi Liên Tục",
@@ -101,14 +101,16 @@
       "frontend": "Frontend",
       "databases": "Cơ Sở Dữ Liệu",
       "devops": "DevOps & Cloud",
-      "ai": "AI & Công Cụ Dev"
+      "ai": "AI & Công Cụ Dev",
+      "apis": "API Bên Thứ Ba"
     },
     "skills": {
-      "backend": ["Laravel", "PHP", "CakePHP", "Node.js", "AdonisJS v6"],
-      "frontend": ["ReactJS", "VueJS", "jQuery", "HTML/CSS", "Tailwind CSS", "Bootstrap"],
+      "backend": ["PHP", "Laravel", "CakePHP", "Node.js", "AdonisJS v6"],
+      "frontend": ["VueJS", "ReactJS", "jQuery", "HTML/CSS", "Tailwind CSS", "Bootstrap"],
       "databases": ["MySQL", "PostgreSQL", "MongoDB"],
-      "devops": ["Git", "Docker", "Linux/Ubuntu", "AWS S3", "Firebase"],
-      "ai": ["OpenAI API", "Claude Code", "GitHub Copilot", "Cursor IDE", "Prompt Engineering"]
+      "devops": ["Git", "GitHub CI/CD", "Docker", "Linux/Ubuntu", "AWS S3", "AWS SES", "Firebase"],
+      "ai": ["OpenAI API", "Claude Code", "GitHub Copilot", "Cursor IDE", "Prompt Engineering"],
+      "apis": ["Stripe", "9Pay", "ACB API", "PortOne", "GiaoHangNhanh", "Vietmap", "FB Marketing", "Google Ads", "Shopee API", "Socket.IO", "Momo"]
     }
   },
   "projects": {
@@ -135,11 +137,11 @@
         "context": "Remote / Freelance",
         "period": "Th5 – Th11 2025",
         "team": "Team: 5",
-        "description": "Nền tảng tìm stylist realtime — kết nối khách hàng với chuyên gia làm tóc và làm đẹp đang sẵn sàng gần bạn, không cần đặt lịch trước. Đã phát hành trên App Store.",
+        "description": "Nền tảng tìm stylist realtime — kết nối khách hàng với chuyên gia làm tóc và làm đẹp đang sẵn sàng gần bạn, không cần đặt lịch trước. API AdonisJS hiệu năng cao, chat realtime Socket.IO, tìm kiếm theo vị trí Vietmap và tích hợp thanh toán — đã phát hành trên App Store.",
         "highlights": [
-          "Tìm stylist realtime theo vị trí",
+          "API AdonisJS hiệu năng cao",
           "Chat realtime user–provider qua Socket.IO",
-          "Tính toán thời gian đến & tích hợp thanh toán"
+          "Tìm kiếm Vietmap & tích hợp thanh toán"
         ],
         "tech": ["Laravel", "AdonisJS v6", "Socket.IO", "Firebase", "Vietmap", "9Pay", "Momo"]
       },
@@ -257,40 +259,42 @@
     },
     "items": {
       "freelance": {
-        "company": "Backend Developer — Remote / Freelancer",
-        "role": "Lập Trình Viên Full Stack",
+        "company": "Việt Nam (CIT Group) & Nhật Bản (JAVIS Co., Ltd.)",
+        "role": "Lập Trình Viên Full Stack — Remote / Freelancer",
         "period": "Th11 2024 — Hiện tại",
         "responsibilities": [
-          "Xây dựng Vanda (Vanecom), nền tảng thương mại điện tử AI tích hợp OpenAI API cho gợi ý sản phẩm và hỗ trợ khách hàng tự động",
+          "Xây dựng Vanda, nền tảng thương mại điện tử AI tích hợp OpenAI API cho gợi ý sản phẩm và hỗ trợ khách hàng tự động",
+          "Phát triển HairNow, nền tảng tìm stylist realtime với chat Socket.IO, định vị và tích hợp thanh toán — phát hành trên App Store",
+          "Xây dựng backend Vương Kim Bảo cho app Flutter — tra cứu phong thủy, luận giải ngày sinh và gợi ý vật phẩm theo bản mệnh — có mặt trên App Store",
           "Phát triển Jindo App, ứng dụng học tiếng Hàn với bài học tương tác, Firebase analytics và đăng ký in-app qua 9Pay",
-          "Phát triển Hairnow, nền tảng tìm stylist realtime với chat Socket.IO, định vị và tích hợp thanh toán — phát hành trên App Store",
-          "Xây dựng backend Vương Kim Bảo cho app Flutter — tra cứu phong thủy, luận giải ngày sinh và gợi ý vật phẩm theo bản mệnh",
-          "Bảo trì và tối ưu hệ thống backend Laravel cho JAVIS Co., Ltd (công ty outsourcing Nhật Bản)",
-          "Quản lý migration schema, tối ưu query và hỗ trợ triển khai zero-downtime"
+          "Bảo trì và tối ưu hệ thống backend Laravel cho JAVIS Co., Ltd. (công ty outsourcing Nhật Bản) — quản lý migration schema, tối ưu query và triển khai zero-downtime",
+          "Sử dụng Claude Code, Cursor IDE và GitHub Copilot để tăng tốc phát triển trên tất cả dự án đang hoạt động"
         ],
         "achievements": [
           "Triển khai Vanda với gợi ý AI, chat Firebase và theo dõi giao hàng GiaoHangNhanh",
-          "Hoàn thành Jindo App với theo dõi tiến độ, push notification và luồng mua in-app qua 9Pay",
-          "Hoàn thành Hairnow với API AdonisJS hiệu năng cao và giao tiếp realtime user–provider trên iOS",
+          "Hoàn thành HairNow với API AdonisJS hiệu năng cao và giao tiếp realtime user–provider trên iOS",
           "Triển khai Vương Kim Bảo với API Laravel phục vụ tra cứu vận mệnh và gợi ý sản phẩm phong thủy",
-          "Chẩn đoán và xử lý lỗi phức tạp, cải thiện thời gian phản hồi API trên các hệ thống khách hàng"
+          "Hoàn thành Jindo App với theo dõi tiến độ, push notification và luồng mua in-app qua 9Pay",
+          "Cải thiện thời gian phản hồi API và độ ổn định hệ thống cho JAVIS Co., Ltd."
         ],
         "technologies": ["Laravel", "Flutter", "AdonisJS v6", "OpenAI API", "Socket.IO", "Firebase", "MySQL", "Docker"],
-        "impact": "Triển khai sản phẩm AI, edtech, lifestyle và mobile realtime từ xa, đồng thời bảo trì hệ thống Laravel doanh nghiệp cho khách hàng Nhật Bản."
+        "impact": "Triển khai sản phẩm AI, edtech, lifestyle và mobile realtime cho CIT Group, đồng thời bảo trì hệ thống Laravel doanh nghiệp cho JAVIS Co., Ltd."
       },
       "coolmate": {
         "company": "Coolmate",
         "role": "Lập Trình Viên Full Stack",
         "period": "Th11 2023 — Th11 2024",
         "responsibilities": [
-          "Phát triển và duy trì Coolmate.me, nền tảng thương mại điện tử thời trang nam hàng đầu Việt Nam",
-          "Xây dựng backend Laravel cho quản lý sản phẩm, đơn hàng, đồng bộ tồn kho và trả hàng",
-          "Phát triển giao diện frontend với ReactJS, VueJS và HTML/CSS/JS"
+          "Phát triển và duy trì Coolmate.me, nền tảng thương mại điện tử thời trang nam hàng đầu Việt Nam xử lý giao dịch khối lượng lớn hàng ngày",
+          "Xây dựng backend Laravel cho quản lý sản phẩm, đơn hàng, thanh toán online, đồng bộ tồn kho và trả hàng",
+          "Phát triển giao diện frontend với ReactJS, VueJS và HTML/CSS/JS",
+          "Tích hợp Shopee API cho đồng bộ sản phẩm đa kênh và PortOne cho xử lý thanh toán đa phương thức an toàn",
+          "Phối hợp với team để đảm bảo trải nghiệm người dùng mượt mà"
         ],
         "achievements": [
           "Tích hợp Shopee API cho đồng bộ sản phẩm đa kênh",
           "Tích hợp PortOne cho xử lý thanh toán đa phương thức an toàn",
-          "Phối hợp trong team đảm bảo độ tin cậy cao"
+          "Đảm bảo trải nghiệm người dùng mượt mà trên nền tảng giao dịch khối lượng lớn"
         ],
         "technologies": ["Laravel", "ReactJS", "VueJS", "MySQL", "Shopee API", "PortOne"],
         "impact": "Đóng góp vào nền tảng thương mại điện tử thời trang hàng đầu Việt Nam xử lý giao dịch khối lượng lớn."
@@ -308,7 +312,7 @@
         "achievements": [
           "Triển khai Ad-Start cho tạo chiến dịch, theo dõi và báo cáo tự động",
           "Xây dựng giải pháp tổng đài doanh nghiệp với giám sát cuộc gọi realtime",
-          "Quản lý tích hợp AWS S3 cho lưu trữ media có thể mở rộng"
+          "Hoàn thành Onsight-php với lịch tương tác ReactJS và cập nhật sự kiện realtime"
         ],
         "technologies": ["Laravel", "CakePHP", "VueJS", "ReactJS", "PostgreSQL", "MySQL", "AWS S3"],
         "impact": "Cung cấp giải pháp SaaS và doanh nghiệp đáng tin cậy cho khách hàng thị trường Nhật Bản."
