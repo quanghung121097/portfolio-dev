@@ -404,7 +404,9 @@
     "subtitle": "Chọn phiên bản ngôn ngữ bạn muốn",
     "english": "English",
     "vietnamese": "Tiếng Việt",
-    "hint": "Mở tab mới · In hoặc lưu PDF",
+    "hint": "Tải file PDF · Mở bản xem trước HTML ở tab mới",
+    "hintMobile": "Tải file PDF về thiết bị của bạn",
+    "download": "Tải xuống",
     "open": "Mở",
     "close": "Đóng"
   }

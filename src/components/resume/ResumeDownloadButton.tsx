@@ -19,6 +19,7 @@ type ResumeOption = {
   title: string;
   subtitle: string;
   path: string;
+  previewPath: string;
   fileName: string;
 };
 
@@ -31,6 +32,7 @@ export function ResumeDownloadButton({
   const locale = useLocale();
   const titleId = useId();
   const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const options: ResumeOption[] = [
     {
@@ -38,6 +40,7 @@ export function ResumeDownloadButton({
       title: t("english"),
       subtitle: "English",
       path: siteConfig.resumes.en.path,
+      previewPath: siteConfig.resumes.en.previewPath,
       fileName: siteConfig.resumes.en.fileName,
     },
     {
@@ -45,6 +48,7 @@ export function ResumeDownloadButton({
       title: t("vietnamese"),
       subtitle: "Tiếng Việt",
       path: siteConfig.resumes.vi.path,
+      previewPath: siteConfig.resumes.vi.previewPath,
       fileName: siteConfig.resumes.vi.fileName,
     },
   ];
@@ -53,6 +57,14 @@ export function ResumeDownloadButton({
     locale === "vi" ? [...options].reverse() : options;
 
   const close = useCallback(() => setOpen(false), []);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 768px)");
+    const update = () => setIsMobile(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -71,8 +83,21 @@ export function ResumeDownloadButton({
     };
   }, [close, open]);
 
+  const downloadPdf = useCallback((option: ResumeOption) => {
+    const anchor = document.createElement("a");
+    anchor.href = option.path;
+    anchor.download = option.fileName;
+    anchor.rel = "noopener";
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+  }, []);
+
   const handleSelect = (option: ResumeOption) => {
-    window.open(option.path, "_blank", "noopener,noreferrer");
+    downloadPdf(option);
+    if (!isMobile) {
+      window.open(option.previewPath, "_blank", "noopener,noreferrer");
+    }
     close();
   };
 
@@ -156,14 +181,14 @@ export function ResumeDownloadButton({
                       </span>
                     </span>
                     <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground transition-colors group-hover:text-[#ff4500]">
-                      {t("open")} ↗
+                      {t("download")}
                     </span>
                   </button>
                 ))}
               </div>
 
               <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground/80">
-                {t("hint")}
+                {isMobile ? t("hintMobile") : t("hint")}
               </p>
             </motion.div>
           </motion.div>

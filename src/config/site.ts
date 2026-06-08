@@ -12,12 +12,14 @@ export const siteConfig = {
   },
   resumes: {
     en: {
-      path: "/NguyenVanQuangHung_CV.html",
-      fileName: "Hung-Nguyen-CV-English.html",
+      path: "/Hung-Nguyen-CV-English.pdf",
+      previewPath: "/NguyenVanQuangHung_CV.html",
+      fileName: "Hung-Nguyen-CV-English.pdf",
     },
     vi: {
-      path: "/NguyenVanQuangHung_CV_VI.html",
-      fileName: "Hung-Nguyen-CV-Tieng-Viet.html",
+      path: "/Hung-Nguyen-CV-Tieng-Viet.pdf",
+      previewPath: "/NguyenVanQuangHung_CV_VI.html",
+      fileName: "Hung-Nguyen-CV-Tieng-Viet.pdf",
     },
   },
 } as const;

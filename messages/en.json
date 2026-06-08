@@ -404,7 +404,9 @@
     "subtitle": "Choose your preferred language version",
     "english": "English",
     "vietnamese": "Tiếng Việt",
-    "hint": "Opens in a new tab · Print or save as PDF",
+    "hint": "Downloads PDF · Opens HTML preview in a new tab",
+    "hintMobile": "Downloads PDF file to your device",
+    "download": "Download",
     "open": "Open",
     "close": "Close"
   }
