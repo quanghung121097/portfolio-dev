@@ -79,3 +79,5 @@ messages/
 ## License
 
 Private — All rights reserved.
+
+gen new cv pđf: npm run generate:cv-pdf
