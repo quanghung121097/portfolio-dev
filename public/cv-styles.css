@@ -107,6 +107,7 @@
   .proj-meta { font-size: 6.8pt !important; white-space: normal !important; }
   .proj-stack { margin-bottom: 2px !important; font-size: 6.8pt !important; }
   .proj-desc { font-size: 7.8pt !important; line-height: 1.36 !important; }
+  .proj-roles li { font-size: 6.8pt !important; line-height: 1.35 !important; padding: 0.5px 0 0.5px 11px !important; }
   .proj-link { margin-top: 2px !important; font-size: 6.8pt !important; }
 
   .skill-line { font-size: 7.2pt !important; line-height: 1.35 !important; }
@@ -589,6 +590,33 @@ body {
 }
 
 .proj-desc strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.proj-roles {
+  list-style: none;
+  margin-top: 6px;
+}
+
+.proj-roles li {
+  font-size: 0.73rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  padding: 1px 0 1px 13px;
+  position: relative;
+}
+
+.proj-roles li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.62rem;
+  top: 3px;
+}
+
+.proj-roles li strong {
   color: var(--ink);
   font-weight: 600;
 }
