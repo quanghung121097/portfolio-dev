@@ -71,7 +71,7 @@
       },
       "step5": {
         "title": "Remote / Freelance Developer",
-        "description": "Transitioned to remote freelance work for CIT Group (Vietnam) and JAVIS Co., Ltd. (Japan) — shipping Vanda, HairNow, Vương Kim Bảo, and Jindo App."
+        "description": "Transitioned to remote freelance work for CIT Group (Vietnam) and JAVIS Co., Ltd. (Japan) — shipping Vanda, Heva, Vương Kim Bảo, and Jindo App."
       }
     },
     "values": {
@@ -132,18 +132,18 @@
         ],
         "tech": ["Laravel", "jQuery", "OpenAI API", "Firebase", "9Pay", "ACB API", "GiaoHangNhanh"]
       },
-      "hairnow": {
-        "name": "HairNow",
+      "heva": {
+        "name": "Heva",
         "context": "Remote / Freelance",
         "period": "May – Nov 2025",
         "team": "Team: 5",
-        "description": "Real-time stylist discovery platform — connect clients with available hair and beauty professionals nearby without appointments. AdonisJS high-performance APIs, realtime chat via Socket.IO, Vietmap location search, and payment integrations — live on the App Store.",
+        "description": "Leading Vietnamese home service booking app — hair, beauty, and mom & baby care at home by verified professionals. AdonisJS APIs, realtime chat via Socket.IO, and flexible payments — live on the App Store.",
         "highlights": [
-          "AdonisJS high-performance APIs",
-          "Realtime user–provider chat via Socket.IO",
-          "Vietmap search & payment integrations"
+          "AdonisJS high-performance booking APIs",
+          "Realtime chat via Socket.IO",
+          "Flexible payments: MoMo, ZaloPay, VNPay"
         ],
-        "tech": ["Laravel", "AdonisJS v6", "Socket.IO", "Firebase", "Vietmap", "9Pay", "Momo"]
+        "tech": ["Laravel", "AdonisJS v6", "Socket.IO", "Firebase", "MoMo", "ZaloPay", "VNPay"]
       },
       "vuongkimbao": {
         "name": "Vương Kim Bảo",
@@ -264,7 +264,7 @@
         "period": "Nov 2024 — Present",
         "responsibilities": [
           "Built Vanda, an AI-powered Vietnamese e-commerce platform with OpenAI API integration for product recommendations and automated customer support",
-          "Developed HairNow, a real-time stylist discovery platform with Socket.IO live chat, geolocation, and payment integrations — live on the App Store",
+          "Developed Heva, a home service booking app for hair, beauty, and mom & baby care with Socket.IO live chat and payment integrations — live on the App Store",
           "Built Vương Kim Bảo backend for the Flutter app — comprehensive feng shui lookup, birth date interpretation, and element-based product recommendations — live on the App Store",
           "Developed Jindo App, a Korean language learning platform with interactive lessons, Firebase analytics, and 9Pay in-app subscriptions",
           "Maintained and optimized Laravel-based backend systems for JAVIS Co., Ltd. (Japanese outsourcing company) — managed schema migrations, query optimization, and zero-downtime deployments",
@@ -272,7 +272,7 @@
         ],
         "achievements": [
           "Shipped Vanda with OpenAI-driven recommendations, Firebase live chat, and GiaoHangNhanh delivery tracking",
-          "Delivered HairNow with AdonisJS high-performance APIs and realtime user–provider communication on iOS",
+          "Delivered Heva with AdonisJS high-performance APIs and realtime user–provider communication on iOS",
           "Shipped Vương Kim Bảo with Laravel APIs powering destiny lookup and feng shui product matching",
           "Delivered Jindo App with progress tracking, push notifications, and in-app purchase flows via 9Pay",
           "Improved API response times and system stability for JAVIS Co., Ltd."
